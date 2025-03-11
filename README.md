@@ -1,4 +1,5 @@
 HEAD
+HEAD
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -39,3 +40,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 # renolux
 the web version of renolux cameroon
 4b0edb0aef4a6ed9538a82e9c4a85e5269530d7a
+=======
+# Renolux
+The web version of renolux cameroon
+fb3405701e4d8fb48cee979e1f0b954499995fe5
