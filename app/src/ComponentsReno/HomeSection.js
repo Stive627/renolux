@@ -19,7 +19,7 @@ const Plans = () => {
     if(plans === undefined ) return <div className=' flex justify-center items-center h-1/2'> <div className=' border-2 border-blue-500 w-10 h-10 animate-spin rounded-full border-b-white'></div></div>
     if(plans.length === 0) return <div><p className=' text-center text-[21px]'>No plans</p></div>
     return(
-        <div className=' flex justify-end'>
+        <div className={`flex w-full ${large? 'justify-end':'justify-center'}`}>
             <div className={`border border-gray-200 p-2 rounded-sm flex flex-col gap-1 overflow-hidden ${large ? 'w-[75vh] h-[60vh]' :' h-[50vh]' }`}>
                 <div className='flex flex-col gap-1 scrollVertical '>
                     {plans.map((elt, indx) => <Image key={indx} src={fetchLink('public/plans/'+elt)} className={'  w-full h-full rounded-sm'} alt={`plan de placo n0${indx}`} width={300} height={300}/>)}
