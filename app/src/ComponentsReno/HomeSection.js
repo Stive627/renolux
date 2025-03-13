@@ -22,7 +22,7 @@ const Plans = () => {
         <div className=' flex justify-end'>
             <div className={`border border-gray-200 p-2 rounded-sm flex flex-col gap-1 overflow-hidden ${large ? 'w-[75vh] h-[60vh]' :' h-[50vh]' }`}>
                 <div className='flex flex-col gap-1 scrollVertical '>
-                    {plans.map((elt, indx) => <Timg key={indx} url={fetchLink('public/plans/'+elt)} className={'  w-full h-full rounded-sm'} alt={`plan de placo n0${indx}`}/>)}
+                    {plans.map((elt, indx) => <Image key={indx} src={fetchLink('public/plans/'+elt)} className={'  w-full h-full rounded-sm'} alt={`plan de placo n0${indx}`} width={300} height={300}/>)}
                 </div> 
             </div>            
         </div>

@@ -6,12 +6,12 @@ import ShowCase from "./src/ComponentsReno/ShowCase";
 
 export default function Home() {
   return (
-    <div style={{fontFamily:'roboto'}}>
+    <>
         <Navbar/>
         <HomeSection/>
         <ShowCase/>
         <Localisation/>
         <Footer/>
-    </div>
+    </>
   );
 }

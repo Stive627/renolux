@@ -2,8 +2,9 @@
 import { useEffect, useState } from "react";
 
 export default function useScreen(){
-    const [width, setWidth] = useState(typeof window !== 'undefined' && window.innerWidth)
+    const [width, setWidth] = useState(0)
     useEffect(() => {
+        setWidth(window.innerWidth)
         function handleWidth(){
             setWidth(window.innerWidth)
             console.log(window.innerHeight)
