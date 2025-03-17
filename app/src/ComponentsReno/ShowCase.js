@@ -11,6 +11,9 @@ import PersonIcon from '@mui/icons-material/Person';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import '../App.css'
+import axios from 'axios';
+import useScreen from '../hook/useScreen';
+import Image from 'next/image';
 const Label = ({services, currService, currSubService}) => {
 
     return(
@@ -69,37 +72,71 @@ const Medias = ({media}) => {
     
 }
 
-const Gallery = () => {
-    const [currentIndx, setCurrentIndx] = useState(0)
-    const [med, setMed] = useState([])
-    const services = [{Construction:['placoplatre', 'etanchiete', 'raccord', 'drainage']}, {Decoration:['papierPeint']}, {Peinture:['peintureEau', 'peintureHuile']}]
-    useEffect(() =>{
-        fetch(fetchLink('public/medias/plans'))
-        .then((value) => value.json())
-        .then((response) => {
-            setMed(response)
-        })
-        .catch((reason) => console.log('An error occured', reason))
-    }, [])
-
-    useEffect(()=>{
-       async function anim(){
-                await Tdelay(1500)
-                setCurrentIndx(currentIndx + 1 )
-        }
-        anim()
-    },[currentIndx])
-    
-    if(med.length <= 0){
-        return <div className=' w-full flex justify-center'><div className=' border-2 w-10 h-10 border-blue-600 animate-spin rounded-full border-b-white'></div></div>
+const GalleryLabel = ({currIndx}) => {
+    const services = ['Construction', 'Decoration Maison', 'Peinture']
+    return(
+        <div className=' col-span-1 border h-96'>
+            <div className='h-full flex items-center '>
+                <div className='flex flex-col gap-3 w-full '>
+                    {services.map((elt, indx) => <button className={`${currIndx === indx ? 'bg-blue-600 text-white ' : 'bg-slate-400'} p-2 text-lg cursor-pointer`} key={indx}>{elt}</button>)}
+                </div>
+            </div>
+        </div>
+    )
+}
+const GalleryMedias = ({medias}) => {
+    console.log(medias)
+    if(!medias){
+        return(
+            <div className=' col-span-2 border h-96'>
+                <div className=' flex items-center justify-center h-full'>
+                    <div className='border border-b-white border-blue-600 animate-spin p-5 rounded-full'></div>
+                </div>
+            </div>
+        )
     }
     return(
-            <div className=' grid grid-cols-8 mb-12'>
-                <Label services={services} currSubService={(subService) => subService === med[currentIndx % med.length].subService} currService={(service) => service === med[currentIndx % med.length].service}/>
-                <Medias media = {med}/>
-            </div>
-            )
+        <div className=' col-span-2 border h-20'></div>
+    )
+}
 
+const Gallery = () => {
+    const [currentIndx, setCurrentIndx] = useState(0)
+    const [currService, setCurrService] = useState(0)
+    const [medias, setMedias] = useState(undefined)
+    const services = ['Construction', 'Decoration Maison', 'Peinture']
+    useEffect(() => {
+        axios({url:'http://localhost:3001/media/show', method:'GET'})
+        .then((value) => {setMedias(value.data); console.log(value.data)})
+        .catch((reason) => console.log('An error occured', reason))
+    }, [])
+    const large = useScreen()
+
+    useEffect(() => {
+        if(undefined){
+            const timeID = setTimeout(() => {setCurrentIndx(currentIndx + 1)}, 1500);
+            setCurrService(services.indexOf(medias[currentIndx].category))
+            return () => clearTimeout(timeID)
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[currentIndx, currService, medias])
+
+    if(!large){
+      return(
+        <>
+            <div className=' flex flex-row justify-between text-lg mt-5'>{services.map((elt, indx) => <button className={`${currService === indx?'text-blue-600 underline' : 'text-slate-800'}`} key={indx}>{elt}</button>)}</div>
+            <div className='border h-64 w-full'>
+                <Image width={200} height={300} src={fetchLink('public/medias/logo.png')} alt='test of image'/>
+            </div>
+        </>
+        )
+    }
+    return(
+        <div className=' w-full grid grid-cols-3  mt-5'>
+            <GalleryLabel currIndx={currService}/>
+            <GalleryMedias medias={medias}/>
+        </div>
+        )
 }
 
 const SelectS = ({callback}) => {
@@ -114,7 +151,7 @@ const SelectS = ({callback}) => {
     }
     return(
         <div className=' flex flex-col text-gray-700'>
-            <button onClick={()=>setOpen(!open)} className=' rounded-md border border-black p-1  outline-0 outline-blue-500  bg-gray-200 to-gray-800 '>{service ? service : 'Selectionnez un service'}{'  '} <KeyboardArrowDownIcon/></button>
+            <button onClick={()=>setOpen(!open)} className=' cursor-pointer rounded-md border border-black p-1  outline-0 outline-blue-500  bg-gray-200 to-gray-800 '>{service ? service : 'Selectionnez un service'}{'  '} <KeyboardArrowDownIcon/></button>
             {open &&
             <div className=' border-blue-50 p-1 flex flex-col divide-y'>
                 {travaux}
@@ -159,7 +196,7 @@ const DevisForm = () => {
            <div>
                 <div className = 'flex justify-between '>
                      <SelectS callback={nextInput}/>
-                     <div><input ref={inputRef} type='number' value={devis.superficie} onChange={(e) => setDevis({...devis, superficie:e.target.value})} /></div>
+                     <div><input ref={inputRef}  className='border' type='number' value={devis.superficie} onChange={(e) => setDevis({...devis, superficie:e.target.value})} /></div>
                      <button type='submit' className={` ${checkValidForm(validForm)} text-lg p-1 rounded-md`}>{spinner && <Tspinner content={<SettingsIcon className=' text-gray-700'/>} className = {''}/>} Generer</button>
                 </div>
                 {devisLink && <div className=' flex justify-center to-gray-700'>

@@ -47,7 +47,7 @@ function Localisation() {
     <div className=' px-2 py-3 grid grid-cols-9 gap-1'>
         <SocialMedia/>
         <div className=' col-span-2 w-full h-full p-2'>
-            <Image width={100} height={100} className=' object-cover' src = {fetchLink('clientSatisfaits')} alt='Clients satisfaits'/>
+            <Image width={100} height={100} className=' object-cover' src = {fetchLink('public/medias/happyClients.png')} alt='Clients satisfaits'/>
         </div>
         <div className=' col-span-3 flex items-center'>
             <p>
