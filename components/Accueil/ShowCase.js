@@ -1,6 +1,5 @@
 'use client'
 import React, {useEffect, useRef, useState } from 'react'
-import { checkValidForm, fetchLink, Tdelay, Timg, Tspinner } from '../../app/src/Ttools'
 import PreviewIcon from '@mui/icons-material/Preview';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -10,10 +9,13 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import PersonIcon from '@mui/icons-material/Person';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import '../App.css'
+import '../../App.css'
 import axios from 'axios';
 import useScreen from '../../hook/useScreen';
 import Image from 'next/image';
+import { checkValidForm } from '@/functions/checkValidForm';
+import { delay } from '@/functions/delay';
+import fetchLink from '@/functions/fetchLink';
 const Label = ({services, currService, currSubService}) => {
 
     return(
@@ -38,6 +40,8 @@ const Label = ({services, currService, currSubService}) => {
         </div>
     )
 }
+
+export const Tspinner = ({className, content}) => <p className={`${className} animate-spin`}>{content} {' '}</p>
 
 const Medias = ({media}) => {
     const [indx, setIndx] = useState(0)
@@ -64,7 +68,7 @@ const Medias = ({media}) => {
                         imgRef.current.set(elt, node);
                         return ()=> imgRef.current.delete(elt)
                         }}>
-                            <Timg   url={elt.url} alt={`Image de la category ${elt.category} et du service ${elt.service}`} className={'w-full h-full'}/>
+                            <Image width={100} height={100}   src={elt.url} alt={`Image de la category ${elt.category} et du service ${elt.service}`} className={'w-full h-full'}/>
                 </div>)
             }
         </div>
@@ -175,7 +179,7 @@ const DevisForm = () => {
         e.preventDefault()
         if(validForm){ 
         setSpinner(true)
-        await Tdelay(2000)
+        await delay(2000)
         const formdata = new FormData()
         formdata.append('service', devis.service)
         formdata.append('superficie', devis.superficie)
@@ -239,7 +243,7 @@ const FormComment = ({handleAddComment}) => {
         e.preventDefault()
         if(validForm){
             setSpinner(true)
-            Tdelay(2000)
+            delay(2000)
             handleAddComment(comment)
             const formdata = new FormData()
             formdata.append('username',comment.username)
@@ -257,7 +261,7 @@ const FormComment = ({handleAddComment}) => {
     if(imgSucc){
         return(
             <div className=' border border-gray-300 col-span-2 flex justify-center items-center'>
-                <Timg url={imgSucc} className={'w-1/2  h-1/2'}/>
+                <Image url={imgSucc} alt='the description' width={100} height={100} className={'w-1/2  h-1/2'}/>
                 <p className = ' text-gray-700'>Message recu, merci!</p>
             </div>
         )

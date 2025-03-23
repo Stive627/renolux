@@ -1,10 +1,11 @@
 'use client'
 import React, { useState } from 'react'
-import { fetchLink, Timg } from '../../app/src/Ttools'
 import MenuIcon from '@mui/icons-material/Menu';
 import useScreen from '../../hook/useScreen';
 import CloseIcon from '@mui/icons-material/Close';
-import '../App.css'
+import '../../App.css'
+import fetchLink from '@/functions/fetchLink';
+import Image from 'next/image';
 
 const scroll = (id) => {
     const elt = document.getElementById(id)
@@ -20,7 +21,7 @@ export function LeftNav(){
     const large = useScreen()
     return(
         <div className = 'flex flex-row items-center gap-2'>
-            <Timg alt={'Logo Renolux'} url={fetchLink('public/medias/logo.png')} className={`${large? 'w-16 h-16' : 'w-10 h-10'}`}/>
+            <Image width={100} height={100}  alt={'Logo Renolux'} src={fetchLink('public/medias/logo.png')} className={`${large? 'w-16 h-16' : 'w-10 h-10'}`}/>
             <p style={{color:'rgba(57, 55, 55, 1)'}} className={`font-semibold  ${large? 'text-[26px]':'text-[20px]'}`}>Renolux Cameroun</p>
         </div>
     )

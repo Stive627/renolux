@@ -4,8 +4,8 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import {fetchLink} from '../../app/src/Ttools'
 import Image from 'next/image';
+import fetchLink from '@/functions/fetchLink';
 
 const LinkMedia = ({borderColor, icon, socialNetwork, url}) => {
     return(

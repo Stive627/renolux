@@ -1,9 +1,10 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { fetchLink, Timg, TypeWriterArr } from '../../app/src/Ttools'
 import useScreen from '../../hook/useScreen'
 import axios from 'axios'
 import Image from 'next/image'
+import fetchLink from '@/functions/fetchLink'
+import Typewriter from '../Typewriter'
 
 const Plans = () => {
     const [plans, setPlans] = useState(undefined)
@@ -39,7 +40,7 @@ function HomeSectionRight(){
                 <span className={`bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-500  ${large ? 'text-[55px]' : 'text-[35px]'}`}>recommandés pour</span>
             </div>
             <div className=' flex justify-start pb-2'>
-                <div className=' border border-blue  bg-gradient-to-r  from-blue-500 to bg-green-500'><TypeWriterArr arr={['Des solutions innovantes', 'Un service de qualité', 'le  respect des delais', 'Une approche orientée client.']} className={`${large?' text-[40px]' : ' text-[25px]'} font-bold text-white`} ms={100}/></div>
+                <div className=' border border-blue  bg-gradient-to-r  from-blue-500 to bg-green-500'><Typewriter arr={['Des solutions innovantes', 'Un service de qualité', 'le  respect des delais', 'Une approche orientée client.']} className={`${large?' text-[40px]' : ' text-[25px]'} font-bold text-white`} ms={100}/></div>
             </div>
             <Plans/>
         </div>
