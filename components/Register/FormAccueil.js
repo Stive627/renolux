@@ -3,7 +3,7 @@ import { InputAdmin } from './Input'
 import ButtonAdmin  from './Button'
 import validateEmail from './validateEmail'
 import useScreen from '../hook/useScreen'
-import { fetchLink } from '../Ttools'
+import { fetchLink } from '../../app/src/Ttools'
 import Password from './Password'
 import { useNavigate } from 'react-router-dom'
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import useScreen from '../hook/useScreen'
-import Notication from '../Notications/Notication'
+import Notication from '../../../components/Notications/Notication'
 import { fetchLink } from '../Ttools'
-import VerificationCode from '../VerificationCode/VerificationCode'
+import VerificationCode from '../../../components/VerificationCode/VerificationCode'
 
 function CodeUI({email, handleCode, valid, valcode, handleGeneratePassword}) {
   const [newCode, setNewCode] = useState(false)

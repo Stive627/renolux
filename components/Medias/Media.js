@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../ComponentsReno/Navbar'
+import Navbar from '../../../components/Navbar'
 import Header from './Header'
 import AttachFile from './AttachFile'
 import HandleFile from './HandleFile'

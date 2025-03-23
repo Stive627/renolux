@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import FramePage from '../ComponentsAdmin/FramePage'
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import CloseIcon from '@mui/icons-material/Close';
-import { fetchLink } from '../Ttools';
+import { fetchLink } from '../app/src/Ttools';
 
 const Options = ({value, handleClick, current}) =>{
     return(

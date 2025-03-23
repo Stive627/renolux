@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import useScreen from '../hook/useScreen'
-import Square from '../VerificationCode/Square'
+import Square from '../../../components/VerificationCode/Square'
 
 function CodeVerification({handleCode}) {
     const large = useScreen()

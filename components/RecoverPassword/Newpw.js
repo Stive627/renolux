@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Password from '../Register/Password'
+import Password from '../../../components/Register/Password'
 import useScreen from '../hook/useScreen'
-import ButtonAdmin from '../Register/Button'
+import ButtonAdmin from '../../../components/Register/Button'
 
 function Newpw({password, handlePassword, handleSubmit}) {
     const [password1, setPassword1] = useState('')

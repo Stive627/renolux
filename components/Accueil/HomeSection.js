@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { fetchLink, Timg, TypeWriterArr } from '../Ttools'
-import useScreen from '../hook/useScreen'
+import { fetchLink, Timg, TypeWriterArr } from '../../app/src/Ttools'
+import useScreen from '../../hook/useScreen'
 import axios from 'axios'
 import Image from 'next/image'
 

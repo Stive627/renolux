@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import Navbar from '../ComponentsReno/Navbar'
+import Navbar from '../../../components/Accueil/Navbar'
 import useScreen from '../hook/useScreen'
 import EmailUI from './EmailUI'
 import CodeUI from './CodeUI'

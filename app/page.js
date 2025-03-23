@@ -1,8 +1,9 @@
-import Footer from "./src/ComponentsReno/Footer";
-import HomeSection from "./src/ComponentsReno/HomeSection";
-import Localisation from "./src/ComponentsReno/Localisation";
-import Navbar from "./src/ComponentsReno/Navbar";
-import ShowCase from "./src/ComponentsReno/ShowCase";
+import Footer from "@/components/Accueil/Footer";
+import HomeSection from "@/components/Accueil/HomeSection";
+import Localisation from "@/components/Accueil/Localisation";
+import Navbar from "@/components/Accueil/Navbar";
+import ShowCase from "@/components/Accueil/ShowCase";
+
 
 export default function Home() {
   return (

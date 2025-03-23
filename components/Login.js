@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { fetchLink } from '../Ttools'
-import Navbar from '../ComponentsReno/Navbar'
+import { fetchLink } from '../app/src/Ttools'
+import Navbar from './Accueil/Navbar'
 import useScreen from '../hook/useScreen'
 import '../App.css'
-import Password from '../Register/Password'
+import Password from './Register/Password'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../ComponentsReno/Navbar';
-import { fetchLink } from '../Ttools';
+import Navbar from '../Accueil/Navbar';
+import { fetchLink } from '../../app/src/Ttools';
 import { useNavigate } from 'react-router-dom';
 import '../App.css'
 import FormAccueil from './FormAccueil';

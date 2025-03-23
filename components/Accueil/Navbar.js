@@ -1,8 +1,8 @@
 'use client'
 import React, { useState } from 'react'
-import { fetchLink, Timg } from '../Ttools'
+import { fetchLink, Timg } from '../../app/src/Ttools'
 import MenuIcon from '@mui/icons-material/Menu';
-import useScreen from '../hook/useScreen';
+import useScreen from '../../hook/useScreen';
 import CloseIcon from '@mui/icons-material/Close';
 import '../App.css'
 

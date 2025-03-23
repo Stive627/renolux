@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { LeftNav } from '../ComponentsReno/Nav'
 import { PasswordUI, validateEmail, VerificationCode } from './Register'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { useNavigate } from 'react-router-dom';
-import { fetchLink } from '../Ttools';
+import { fetchLink } from '../app/src/Ttools';
 import FramePage from '../ComponentsAdmin/FramePage';
 
 const EmailUI = ({value, onchange, handleEmail}) =>{

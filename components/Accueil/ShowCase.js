@@ -1,6 +1,6 @@
 'use client'
 import React, {useEffect, useRef, useState } from 'react'
-import { checkValidForm, fetchLink, Tdelay, Timg, Tspinner } from '../Ttools'
+import { checkValidForm, fetchLink, Tdelay, Timg, Tspinner } from '../../app/src/Ttools'
 import PreviewIcon from '@mui/icons-material/Preview';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -12,7 +12,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import '../App.css'
 import axios from 'axios';
-import useScreen from '../hook/useScreen';
+import useScreen from '../../hook/useScreen';
 import Image from 'next/image';
 const Label = ({services, currService, currSubService}) => {
 

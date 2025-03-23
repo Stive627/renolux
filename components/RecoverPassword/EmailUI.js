@@ -1,7 +1,7 @@
 import React from 'react'
-import { InputAdmin } from '../Register/Input'
-import ButtonAdmin from '../Register/Button'
-import validateEmail from '../Register/validateEmail'
+import { InputAdmin } from '../../../components/Register/Input'
+import ButtonAdmin from '../../../components/Register/Button'
+import validateEmail from '../../../components/Register/validateEmail'
 import useScreen from '../hook/useScreen'
 
 function EmailUI({value, handleEmail, handleSubmit}) {
