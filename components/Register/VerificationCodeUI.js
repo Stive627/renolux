@@ -34,11 +34,11 @@ function VerificationCodeUI({email, code, handleFunc}) {
     return(
         <div className=' flex justify-center'>
            <div className={`${large && 'w-1/2'}`}>
-               <p className=' mb-3 text-[21px] text-center'>Saississez le code de 06 chiffres envoye a l'addresse <span className=' font-bold'>{email}</span></p>
+               <p className=' mb-3 text-[21px] text-center'>Saississez le code de 06 chiffres envoye a l&#39;addresse <span className=' font-bold'>{email}</span></p>
               <>
                    <VerificationCode handleCode={handleCode}/>
                    {check === false &&<p className=' text-red-500'>Le code est  erroné</p>}
-                   <p className=' mt-4 text-center'> vous n'avez pas recu de code? cliquez <span style={{color:'rgba(38, 103, 255, 1)'}}>ici</span></p>
+                   <p className=' mt-4 text-center'> vous n&#39;avez pas recu de code? cliquez <span style={{color:'rgba(38, 103, 255, 1)'}}>ici</span></p>
                </>
            </div>
         </div>

@@ -1,11 +1,12 @@
 import React from 'react'
 import SelectUI from './SelectUI'
+import Image from 'next/image'
 
 function HandleFile({file, type, handleType, handleAnnuler, handleAjouter, elts, disable}) {
   return (
     <div style={{backgroundColor:'rgba(0, 0, 0, 0.008)'}} className=' w-full flex justify-center items-center'>
         <div className=' w-full border border-black p-2'>
-           <div className=' flex justify-center border'><img src={URL.createObjectURL(file)} alt='file' className='w-1/2 h-1/2'/></div>
+           <div className=' flex justify-center border'><Image width={100} height={100} src={URL.createObjectURL(file)} alt='file' className='w-1/2 h-1/2'/></div>
            <div className=' w-full flex justify-center my-5'><div className=' w-3/4 justify-normal'><SelectUI elts={elts} type={type} handleType={handleType} /></div></div>
            <div className='w-full flex justify-center'>
                 <div className=' w-3/4 flex justify-end gap-3'>

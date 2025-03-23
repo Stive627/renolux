@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import FramePage from '../ComponentsAdmin/FramePage'
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import CloseIcon from '@mui/icons-material/Close';
-import { fetchLink } from '../app/src/Ttools';
+import fetchLink from '@/functions/fetchLink';
+import Image from 'next/image';
 
 const Options = ({value, handleClick, current}) =>{
     return(
@@ -20,7 +21,7 @@ const NoContenttUI  = ({message}) => <div className=' w-full h-full flex justify
 const CardUI = ({link, handleShow}) =>{
     return(
         <div onClick={()=>handleShow()} className=' w-8 h-8 border border-gray-300'>
-            <img alt={`media ${link}`} src={link} className=' object-cover'/>
+            <Image width={100} height={100} alt={`media ${link}`} src={link} className=' object-cover'/>
         </div>
     )
 }
@@ -44,7 +45,7 @@ const FileUI = ({file, handleRemove, handleCancel, handleAdd}) =>{
                         return(
                             <div key={index}>
                             <div className=' w-7 h-7 relative' key={index}>
-                                <div className=' w-full h-6'><img alt={`file${index}`} src={URL.createObjectURL(elt)} className=' object-cover'/></div>
+                                <div className=' w-full h-6'><Image width={100} height={100} alt={`file${index}`} src={URL.createObjectURL(elt)} className=' object-cover'/></div>
                                 <div className=' absolute top-1 right-1'>
                                     <button onClick={()=>handleRemove(index)}><CloseIcon/></button>
                                 </div>
@@ -69,7 +70,7 @@ const ShowUI = ({show, replace, handleReplace, handleConfirm}) =>{
         <div className='absolute top-0 right-0 left-0 bottom-0 w-full h-full' style={{backgroundColor:'rgba(0, 0, 0, 0.02)'}}>
             <div className=' w-full h-full flex items-center justify-center'>
                 <div className=' border border-gray-300 p-3'>
-                    <p className=' font-semibold text-[18px]'>Etes vous sur de vouloir supprimer l'image</p>
+                    <p className=' font-semibold text-[18px]'>Etes vous sur de vouloir supprimer l&#39;image</p>
                     <div className=' my-2'>{' '}</div>
                     <div className=' flex justify-between'>
                         <button>Annuler</button>
@@ -78,7 +79,7 @@ const ShowUI = ({show, replace, handleReplace, handleConfirm}) =>{
                 </div>
             </div>
         </div>}
-        <div className=' w-9 h-9'><img alt='select media' src={show} className=' object-cover'/></div>
+        <div className=' w-9 h-9'><Image width={100} height={100} alt='select media' src={show} className=' object-cover'/></div>
         {!supprimer && <div className=' flex flex-col gap-1'>
             <div><input id='change' value={replace} onChange={handleReplace}  /> <label htmlFor='change'><p className=' px-3 p-1 border border-gray-300'>Remplacer</p></label></div>
             <button className=' border border-gray-200' onClick={()=>setSupprimer(!supprimer)}>Supprimer</button>

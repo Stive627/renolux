@@ -30,7 +30,7 @@ function CodeUI({email, handleCode, valid, valcode, handleGeneratePassword}) {
     <div className=' px-5'>
         <div style={{width:large? '25vw':'90vw'}}>
           {newCode && <Notication/>}
-            <p className = ' text-[23px]'>Saissisez le code de 06 chiffres envoye a l’addresse <b>{email}</b></p>
+            <p className = ' text-[23px]'>Saissisez le code de 06 chiffres envoye a l&#39;addresse <b>{email}</b></p>
             <div className = 'flex justify-center mb-6'><VerificationCode valcode={valcode} start={-1} handleCode={handleCode}/></div>
             <p className=' text-[18px] text-center'>Generer un nouveau code <button onClick={()=>{setNewCode(true); handleGeneratePassword()}} className=' text-blue-500 border border-none'>ici</button></p>
         </div>
