@@ -1,20 +1,31 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react';
 
-function useVisible(elt){
-    const [visible, setVisible] = useState(false)
-    useEffect(() => {
-        function isVisible(){
-            const client = elt?.getBoundingClientRect()
-            return client?.top.toFixed() >= 0 && client?.bottom.toFixed() <= window.innerHeight
-        }
-        window.addEventListener('scroll', () => {setVisible(isVisible()); console.log(isVisible())})
-       return () => window.removeEventListener('scroll', ()=> setVisible(isVisible()))
-        
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[setVisible])
+function useVisible(elt) {
+  const [visible, setVisible] = useState(false);
 
-    return visible
+  useEffect(() => {
+    function isVisible() {
+      const client = elt?.getBoundingClientRect();
+      return client?.top >= 0 && client?.bottom <= window.innerHeight;
+    }
+
+    const handleScroll = () => {
+      setVisible(isVisible());
+    };
+
+    // Add event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Check initial visibility
+    handleScroll();
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [elt]);
+
+  return visible;
 }
 
-export default useVisible
-
+export default useVisible;
