@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
           {
             protocol: 'https',
-            hostname: 'renoluxbackend.tsasoft.com',
+            hostname: 'renoluxapi.tsasoft.com',
             port: '',
             pathname: '/**',
             search: '',
