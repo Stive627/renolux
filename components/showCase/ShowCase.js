@@ -16,25 +16,26 @@ import Image from 'next/image';
 import { checkValidForm } from '@/functions/checkValidForm';
 import { delay } from '@/functions/delay';
 import fetchLink from '@/functions/fetchLink';
+import useVisible from '@/hook/useVisible';
 
 
 export const Tspinner = ({className, content}) => <p className={`${className} animate-spin`}>{content} {' '}</p>
 
-const Medias = ({media}) => {
+const Medias = ({media, visible}) => {
     const [indx, setIndx] = useState(0)
     const [mediaI, setMediaI] = useState(media)
     const imgRef = useRef(new Map())
     useEffect(() => {
-        setTimeout(() => {
-            const node = imgRef.current.get(mediaI[indx % media.length])
-            node.scrollIntoView({
-            behaviour:'smooth',
-            block:'nearest',
-            inline:'center'
-        })
-        setMediaI([...mediaI, mediaI[indx]])
-        setIndx(indx + 1)
-        }, 1500);
+            setTimeout(() => {
+                const node = imgRef.current.get(mediaI[indx % media.length])
+                node?.scrollIntoView({
+                behaviour:'smooth',
+                
+            })
+            setMediaI([...mediaI, mediaI[indx]])
+            setIndx(indx + 1)
+            }, 1500);
+        
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[indx])
     return(
@@ -62,8 +63,8 @@ const GalleryLabel = ({currIndx}) => {
     )
 }
 
-const GalleryMedias = ({medias}) => {
-    console.log(medias)
+const GalleryMedias = ({medias, visible}) => {
+
     if(!medias){
         return(
             <div className=' col-span-2 border h-96'>
@@ -75,7 +76,7 @@ const GalleryMedias = ({medias}) => {
     }
     return(
         <div className=' col-span-2 border overflow-scroll'>
-            <Medias media={medias}/>
+            <Medias visible = {visible} media={medias}/>
         </div>
     )
 }
@@ -85,17 +86,20 @@ const Gallery = () => {
     const [currService, setCurrService] = useState(0)
     const [medias, setMedias] = useState(undefined)
     const services = ['Placoplatre', 'Decoration', 'Peinture']
+    const galleryRef = useRef(undefined)
+    const visible = useVisible(galleryRef.current)
+    const large = useScreen()
+    console.log(visible)
     useEffect(() => {
         axios({url:fetchLink('media/show'), method:'GET'})
         .then((value) => {setMedias(value.data); console.log(value.data); setCurrentIndx(services.indexOf(medias[0].category))})
         .catch((reason) => console.log('An error occured', reason))
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [medias])
-    const large = useScreen()
 
     useEffect(() => {
         if(medias){
-            const timeID = setTimeout(() => {setCurrentIndx((currentIndx + 1)%medias.length)}, 1500);
+            const timeID = setTimeout(() => {setCurrentIndx((currentIndx + 1)%medias.length); console.log('hi stive')}, 1500);
             setCurrService(services.indexOf(medias[currentIndx].category))
             return () => clearTimeout(timeID)
         }
@@ -105,17 +109,17 @@ const Gallery = () => {
     if(!large){
       return(
         <>
-            <div className=' flex flex-row justify-between text-lg mt-5'>{services.map((elt, indx) => <button className={`${currService === indx?'text-blue-600 underline' : 'text-slate-800'}`} key={indx}>{elt}</button>)}</div>
+            <div  ref={galleryRef} className=' flex flex-row justify-between text-lg mt-5'>{services.map((elt, indx) => <button className={`${currService === indx?'text-blue-600 underline' : 'text-slate-800'}`} key={indx}>{elt}</button>)}</div>
             <div className='border h-64 w-ful'>
-                <GalleryMedias medias={medias}/>
+                <GalleryMedias visible={visible} medias={medias}/>
             </div>
         </>
         )
     }
     return(
-        <div className=' w-full grid grid-cols-3  mt-5'>
+        <div className =' w-full grid grid-cols-3  mt-5'>
             <GalleryLabel currIndx={currService}/>
-            <GalleryMedias medias={medias}/>
+            <GalleryMedias visible={visible} medias={medias}/>
         </div>
         )
 }
