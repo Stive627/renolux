@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 

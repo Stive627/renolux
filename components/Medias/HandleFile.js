@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import SelectUI from './SelectUI'
 import Image from 'next/image'

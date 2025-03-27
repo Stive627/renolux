@@ -110,7 +110,7 @@ const Gallery = () => {
     const [medias, setMedias] = useState(undefined)
     const services = ['Construction', 'Decoration Maison', 'Peinture']
     useEffect(() => {
-        axios({url:'http://localhost:3001/media/show', method:'GET'})
+        axios({url:'https://renoluxapi.tsasoft.com/media/show', method:'GET'})
         .then((value) => {setMedias(value.data); console.log(value.data)})
         .catch((reason) => console.log('An error occured', reason))
     }, [])

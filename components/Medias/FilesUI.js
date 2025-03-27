@@ -1,7 +1,7 @@
+"use client"
 import React from 'react'
-import useScreen from '../hook/useScreen'
-import { fetchLink } from '../Ttools'
 import Image from 'next/image'
+import useScreen from '@/hook/useScreen'
 
 function FilesUI({content, handleManage}) {
     const large = useScreen()

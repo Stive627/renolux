@@ -1,5 +1,6 @@
+"use client"
+import useScreen from '@/hook/useScreen'
 import React from 'react'
-import useScreen from '../hook/useScreen'
 
 function SingleElt({active, value, handleActive, indx}){
     return(

@@ -6,6 +6,7 @@ import useScreen from '../hook/useScreen'
 import { fetchLink } from '../../app/src/Ttools'
 import Password from './Password'
 import { useNavigate } from 'react-router-dom'
+import Image from 'next/image'
 
 function FormAccueil({emailValue, passord1Value, password2Value, email, password1, password2, handleVerification}) {
     const [visible, setVisible] = useState({p:true, v:true})
@@ -33,7 +34,7 @@ function FormAccueil({emailValue, passord1Value, password2Value, email, password
                     <div className=' flex justify-center'><ButtonAdmin validation={validPassword} value={'Continuer'}/></div>
                 </form>
             </div>
-            <div className='  flex justify-center mt-10 '><a className=' w-full flex justify-center' href='http://localhost:3001/auth/google'><div className={ `flex flex-row gap-2 items-center googleBorder ${large? 'w-1/4':'w-3/4'} justify-center rounded-md p-1 `}><button className=' p-1'><img alt='logo google' className=' w-7 h-7' src={fetchLink('medias/google.png')}/></button><p className=' text-[18px] cursor-pointer'>Continuer avec google</p></div></a></div>
+            <div className='  flex justify-center mt-10 '><a className=' w-full flex justify-center' href='http://localhost:3001/auth/google'><div className={ `flex flex-row gap-2 items-center googleBorder ${large? 'w-1/4':'w-3/4'} justify-center rounded-md p-1 `}><button className=' p-1'><Image alt='logo google' width={30} height={30} src={fetchLink('medias/google.png')}/></button><p className=' text-[18px] cursor-pointer'>Continuer avec google</p></div></a></div>
             <p className=' text-[16px] w-full text-center py-5'>Vous avez un compte? connecter vous <span onClick={()=>navigate('/login')} style={{color:'rgba(38, 103, 255, 1)'}} className=' underline cursor-pointer'>ici</span></p>
         </>
     )
