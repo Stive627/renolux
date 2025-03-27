@@ -16,30 +16,7 @@ import Image from 'next/image';
 import { checkValidForm } from '@/functions/checkValidForm';
 import { delay } from '@/functions/delay';
 import fetchLink from '@/functions/fetchLink';
-const Label = ({services, currService, currSubService}) => {
 
-    return(
-        <div className = ' col-span-3'>
-        {
-            services.map(
-                (elt, indx) => 
-                <div key={indx} className = {` col-span-3 ${currService(Object.keys(elt)[0]) ? 'border border-blue-500' : 'border border-gray-100 p-1'} `}>
-                    <button className={`${currService(Object.keys(elt)[0]) ? ' text-white bg-blue-600' : ' text-gray-800 bg-slate-50 text-lg w-full'}`}>{Object.keys(elt)[0]}</button>
-                        {
-                            currService(Object.keys(elt)[0]) && 
-                                <div className = ' w-full h-full flex flex-col gap-1'>
-                                    {Object.values(elt)[0].map((elt) => {
-                                    return  <button key={elt} className = {`${currSubService(elt) && currService(Object.keys(elt)[0]) ? ' text-white bg-blue-600' : ' text-gray-800 bg-slate-50 text-lg'}`}>{elt}</button>
-                                })} 
-                                </div>
-                        }
-                </div>
-                        )
-        }
-
-        </div>
-    )
-}
 
 export const Tspinner = ({className, content}) => <p className={`${className} animate-spin`}>{content} {' '}</p>
 
@@ -61,15 +38,11 @@ const Medias = ({media}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[indx])
     return(
-        <div className={'col-span-5 overflow-hidden border border-gray-300 flex gap-1  p-1 h-10'}>
+        <div className={'col-span-5 h-full overflow-hidden  border border-gray-300 flex gap-6 p-1'}>
             {
                 mediaI.map((elt, indx) => 
-                <div className=' w-full h-full'  key = {indx} ref = {(node) => {
-                        imgRef.current.set(elt, node);
-                        return ()=> imgRef.current.delete(elt)
-                        }}>
-                            <Image width={100} height={100}   src={elt.url} alt={`Image de la category ${elt.category} et du service ${elt.service}`} className={'w-full h-full'}/>
-                </div>)
+                    <Image key={indx} ref={(node) => {imgRef.current.set(elt, node); return ()=> imgRef.current.delete(elt)}} width={200} height={200}   src={fetchLink(elt.url)} alt={`Image de la category ${elt.category} et du service ${elt.service}`}/>
+            )
             }
         </div>
     )
@@ -88,6 +61,7 @@ const GalleryLabel = ({currIndx}) => {
         </div>
     )
 }
+
 const GalleryMedias = ({medias}) => {
     console.log(medias)
     if(!medias){
@@ -100,7 +74,9 @@ const GalleryMedias = ({medias}) => {
         )
     }
     return(
-        <div className=' col-span-2 border h-20'></div>
+        <div className=' col-span-2 border overflow-scroll'>
+            <Medias media={medias}/>
+        </div>
     )
 }
 
@@ -108,17 +84,18 @@ const Gallery = () => {
     const [currentIndx, setCurrentIndx] = useState(0)
     const [currService, setCurrService] = useState(0)
     const [medias, setMedias] = useState(undefined)
-    const services = ['Construction', 'Decoration Maison', 'Peinture']
+    const services = ['Placoplatre', 'Decoration', 'Peinture']
     useEffect(() => {
-        axios({url:'https://renoluxapi.tsasoft.com/media/show', method:'GET'})
-        .then((value) => {setMedias(value.data); console.log(value.data)})
+        axios({url:fetchLink('media/show'), method:'GET'})
+        .then((value) => {setMedias(value.data); console.log(value.data); setCurrentIndx(services.indexOf(medias[0].category))})
         .catch((reason) => console.log('An error occured', reason))
-    }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [medias])
     const large = useScreen()
 
     useEffect(() => {
-        if(undefined){
-            const timeID = setTimeout(() => {setCurrentIndx(currentIndx + 1)}, 1500);
+        if(medias){
+            const timeID = setTimeout(() => {setCurrentIndx((currentIndx + 1)%medias.length)}, 1500);
             setCurrService(services.indexOf(medias[currentIndx].category))
             return () => clearTimeout(timeID)
         }
@@ -129,8 +106,8 @@ const Gallery = () => {
       return(
         <>
             <div className=' flex flex-row justify-between text-lg mt-5'>{services.map((elt, indx) => <button className={`${currService === indx?'text-blue-600 underline' : 'text-slate-800'}`} key={indx}>{elt}</button>)}</div>
-            <div className='border h-64 w-full'>
-                <Image width={200} height={300} src={fetchLink('public/medias/logo.png')} alt='test of image'/>
+            <div className='border h-64 w-ful'>
+                <GalleryMedias medias={medias}/>
             </div>
         </>
         )
