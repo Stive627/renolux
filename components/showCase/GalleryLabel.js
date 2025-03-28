@@ -6,7 +6,7 @@ function GalleryLabel({currService}) {
     const large = useScreen()
     const services = ['Placoplatre', 'Decoration', 'Peinture']
 
-    if(!large) {return <div className=' flex flex-row justify-between text-lg mt-5'>{services.map((elt, indx) => <button className={`${currService === indx?'text-blue-600 underline' : 'text-slate-800'}`} key={indx}>{elt}</button>)}</div>}
+    if(!large) {return <div className=' flex flex-row justify-between text-lg mt-5 px-3'>{services.map((elt, indx) => <button className={`${currService === indx?'text-blue-600 underline' : 'text-slate-800'}`} key={indx}>{elt}</button>)}</div>}
 
     return (
         <div className=' col-span-1 border h-96'>
