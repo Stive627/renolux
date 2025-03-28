@@ -26,9 +26,9 @@ function MediaScroll({medias, visible}) {
   return (
     <div className=' flex flex-row gap-5 items-center h-full'>
       {
-        mediass.map((elt, indx) => <div key={indx} className=' h-20 w-20'> <Image key={indx} ref={(node) => {mediasRef.current.set(elt, node); return ()=> mediasRef.current.delete(elt)}}  fill={true} src={fetchLink(elt.url)} alt={elt.url}/></div>
+        mediass.map((elt, indx) =><Image key={indx} ref={(node) => {mediasRef.current.set(elt, node); return ()=> mediasRef.current.delete(elt)}}   src={fetchLink(elt.url)} alt={elt.url} width={200} height={200}/>
         )
-      }
+      } 
     </div>
   )
 }
