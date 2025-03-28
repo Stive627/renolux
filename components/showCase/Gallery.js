@@ -6,6 +6,7 @@ import useVisible from '@/hook/useVisible'
 import axios from 'axios'
 import fetchLink from '@/functions/fetchLink'
 import useScreen from '@/hook/useScreen'
+import sanitizeMedias from '@/functions/sanitizeMedias'
 
 function Gallery() {
 
@@ -29,7 +30,7 @@ function Gallery() {
 
   useEffect(() => {
     axios({url:fetchLink('media/show'), method:'GET'})
-    .then((value) => {setMedias(value.data); console.log(value.data); setCurrentIndx(['Placoplatre', 'Decoration', 'Peinture'].indexOf(medias[0].category))})
+    .then((value) => {setMedias(sanitizeMedias(value.data)); console.log(sanitizeMedias(value.data)); setCurrentIndx(['Placoplatre', 'Decoration', 'Peinture'].indexOf(medias[0].category))})
     .catch((reason) => console.log('An error occured', reason))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
