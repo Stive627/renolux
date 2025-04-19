@@ -9,9 +9,9 @@ function SingleComment({comment, indx}) {
       <div className=' flex justify-between items-center'>
         <div className=' flex items-center gap-2'>
             <MoodIcon sx={{fontSize:40, color:'blue'}}/> 
-            <p className=' text-[19px] '>{comment.firstname[0].toUpperCase()+comment.firstname.slice(1)}</p>
+            <p className=' text-[19px] '>{comment.firstname[0].toUpperCase() + comment.firstname.slice(1)}</p>
         </div>
-        <p>{comment.createdAt.slice(0,10)}</p>
+        <p>{comment.createdAt?.slice(0,10)}</p>
       </div>
       <div className=' w-1/3 flex  gap-2'>
         {Array(5).fill().map((elt, indx) => <button key={indx}><StarOutlineIcon  sx={{color:'blue',fontSize:23, backgroundColor:(+indx + 1 <= comment.stars)?'rgba(179, 196, 233, 1)':'white'}} className=' rounded-full cursor-pointer w-1/2'/></button>)}

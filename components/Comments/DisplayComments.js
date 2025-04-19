@@ -14,7 +14,6 @@ function DisplayComments({comments}) {
     }, 2000);
     return ()=> clearInterval(intervalId)
     }, [])
-    const usefullArr = [...comments, ...comments, ...comments, ...comments]
   return (
     <div className='col-span-5 border p-2 flex items-center border-slate-200 '>
         <Swiper ref={carRef}
@@ -23,7 +22,7 @@ function DisplayComments({comments}) {
         grabCursor={true} 
         loop={true} 
         >
-        {usefullArr.map((elt, indx) => <SwiperSlide key={indx}><SingleComment key={indx} indx={indx} comment={elt}/></SwiperSlide>)}
+        {comments.map((elt, indx) => <SwiperSlide key={indx}><SingleComment key={indx} indx={indx} comment={elt}/></SwiperSlide>)}
         </Swiper>
     </div>
   )

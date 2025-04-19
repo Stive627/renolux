@@ -43,7 +43,7 @@ useEffect(() => {
         <HomeSection plans={plans}/>
         <Gallery medias={medias}/>
         <Devis/>
-        <Comment comments={comment}/>
+        <Comment comments={comment} setComments={setComment}/>
         <Localisation/>
         <Footer/>
     </div>

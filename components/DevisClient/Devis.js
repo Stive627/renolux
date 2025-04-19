@@ -9,9 +9,7 @@ function Devis() {
   const valideDevis = area 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(typeof window !== 'undefined'){
-      window.scrollTo({top:100, behavior:'smooth'})
-    }
+    const formData = new FormData()
   }
   return (
     <div className={`lineargrad pt-3 ${large && 'h-40'} items-center`}>
