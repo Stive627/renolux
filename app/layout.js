@@ -23,8 +23,7 @@ export default function RootLayout({ children }) {
       <head>
           <title>Renolux</title>
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      <body style={{fontFamily:'roboto'}}
       >
         {children}
         

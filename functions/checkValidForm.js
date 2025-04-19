@@ -1,1 +1,0 @@
-export  const checkValidForm = (condition) => condition ? 'bg-blue-500 text-white border border-blue-700' : 'bg-gray-500 text-black border border-gray-700'

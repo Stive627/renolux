@@ -35,8 +35,14 @@
 .lineargrad{
     /* background-image: linear-gradient(red, yellow); */
 
-    background-image: linear-gradient(to right, rgba(234, 213, 233, 1), rgba(59, 136, 219, 0.51),  rgba(245, 245, 245, 1));
+    background-image: linear-gradient(to right, #6688e6,#75d7e4,#75e4a7);
 }
+.lineargradtext{
+        background: -webkit-linear-gradient(#D8B5FF,#1EAE98);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+
 .navhov{
     color: rgba(57, 55, 55, 1);
 }

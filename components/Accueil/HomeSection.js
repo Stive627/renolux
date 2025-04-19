@@ -22,12 +22,11 @@ function HomeSectionRight({plans}){
     const large = useScreen()
     return(
         <div className = ' ml-1 col-span-4'>
-            <div className=''>
-                <span className={`text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500 ${large ? 'text-[55px]' : 'text-[35px]'} `}>Nous sommes </span>{large &&<br/>}
-                <span className={`bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-500  ${large ? 'text-[55px]' : 'text-[35px]'}`}>recommandés pour</span>
+            <div>
+                <span className={`lineargradtext ${large ? 'text-[55px]' : 'text-[35px]'} `}>Nous sommes recommandés pour:</span>{large &&<br/>}
             </div>
             <div className=' flex justify-start pb-2'>
-                <div className=' rounded-md border-blue  bg-gradient-to-r  from-blue-500 to bg-green-500'><Typewriter arr={['Des solutions innovantes', 'Un service de qualité', 'le  respect des delais', 'Une approche orientée client.']} className={`${large?' text-[40px]' : ' text-[25px]'} font-bold text-white`} ms={100}/></div>
+                <div className=' rounded-sm lineargrad'><Typewriter arr={['Des solutions innovantes', 'Un service de qualité', 'le  respect des delais', 'Une approche orientée client.']} className={`${large?' text-[40px]' : ' text-[25px]'} font-bold text-white`} ms={100}/></div>
             </div>
             <Plans plans={plans}/>
         </div>

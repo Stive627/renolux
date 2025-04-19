@@ -7,7 +7,7 @@ function FormComment({comment, setComment, handleSubmit, loading}) {
   const large = useScreen()
 
   return (
-    <div className=' col-span-3 border border-gray-200 flex justify-center'>
+    <div className=' col-span-3 flex justify-center'>
       <form onSubmit={handleSubmit} className={`${large? 'w-2/5':'w-2/3'} flex  flex-col gap-3 my-3`}>
         <input className='border rounded-md border-gray-500 h-10 outline-blue-500 px-2 ' value={comment.firstname} onChange={(e) => setComment({...comment, firstname:e.target.value})} placeholder='Entrer votre Prenom'/>
         <textarea className=' border rounded-md border-gray-500 px-2 py-3 outline-blue-500' value={comment.message} style={{resize:'none'}} cols={2} onChange={(e)=> setComment({...comment, message:e.target.value})} placeholder='Entrer votre message'></textarea>

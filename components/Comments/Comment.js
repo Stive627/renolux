@@ -35,7 +35,7 @@ function Comment({comments, setComments}) {
   return (
     <>
     <p className=' text-center text-slate-700 my-3'>Partagez votre expérience avec nos solutions pour aider les autres, s&#39;il vous plaît !</p>
-      <div className={`border border-slate-300 w-full ${large &&'grid grid-cols-8'}`}>
+      <div className={`w-full ${large &&'grid grid-cols-8'}`}>
       {sent? <SuccessfullComment/> :<FormComment loading={loading} handleSubmit={handleSubmit} comment={comment} setComment={setComment}/> }
       <DisplayComments comments={comments}/>
       </div>

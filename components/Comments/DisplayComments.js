@@ -15,7 +15,7 @@ function DisplayComments({comments}) {
     return ()=> clearInterval(intervalId)
     }, [])
   return (
-    <div className='col-span-5 border p-2 flex items-center border-slate-200 '>
+    <div className='col-span-5  p-2 flex items-center'>
         <Swiper ref={carRef}
         spaceBetween={10}
         slidesPerView={large?3:1}
