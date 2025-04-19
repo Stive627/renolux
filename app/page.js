@@ -38,7 +38,7 @@ useEffect(() => {
   .catch(err => console.error(err))
 }, [])
   return (
-    <>
+    <div className=" overflow-x-hidden">
         <Navbar/>
         <HomeSection plans={plans}/>
         <Gallery medias={medias}/>
@@ -46,6 +46,6 @@ useEffect(() => {
         <Comment comments={comment}/>
         <Localisation/>
         <Footer/>
-    </>
+    </div>
   );
 }

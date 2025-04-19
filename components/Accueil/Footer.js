@@ -16,9 +16,9 @@ function Footer() {
             </div>
             <div className={`flex flex-col gap-2 ${!large && 'mt-5'}`}>
                 <p>Abonnez pour a notre newsletter.</p>
-                <div className=' flex flex-row gap-3'>
-                    <input value={email} onChange={(e)=>setEmail(e.target.value)} className=' border border-black text-white  rounded-md px-1 outline-blue-800' placeholder='Entrez votre email'/>
-                    <button className=' border bg-white h-9 px-5 rounded-md'>S&#39;abonner</button>
+                <div className=' flex flex-row gap-1 w-full'>
+                    <input value={email} onChange={(e)=>setEmail(e.target.value)} className=' border border-black text-white h-9 rounded-md px-1 outline-blue-800 ' placeholder='Entrez votre email'/>
+                    <button className=' border bg-white h-9 px-2 rounded-md '>S&#39;abonner</button>
                 </div>
             </div>
         </div>
