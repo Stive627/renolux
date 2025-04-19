@@ -38,7 +38,7 @@
     background-image: linear-gradient(to right, #6688e6,#75d7e4,#75e4a7);
 }
 .lineargradtext{
-        background: -webkit-linear-gradient(#D8B5FF,#1EAE98);
+        background: -webkit-linear-gradient(blue, green);
         background-clip: text;
         -webkit-text-fill-color: transparent;
 }
