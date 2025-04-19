@@ -35,7 +35,7 @@
 .lineargrad{
     /* background-image: linear-gradient(red, yellow); */
 
-    background-image: linear-gradient(to right, rgba(234, 213, 233, 1), rgba(59, 136, 219, 0.51),  rgba(245, 245, 245, 1));;
+    background-image: linear-gradient(to right, rgba(234, 213, 233, 1), rgba(59, 136, 219, 0.51),  rgba(245, 245, 245, 1));
 }
 .navhov{
     color: rgba(57, 55, 55, 1);
@@ -67,13 +67,11 @@
 }
 .singleComUp:hover{
     transform: rotate(-5deg);
-    border-color: blue;
-    transition-duration: 0.2s;
+    transition-duration: 0.3s;
 }
 .singleComDown:hover{
     transform: rotate(5deg);
-    border-color: blue;
-    transition-duration: 0.2s;
+    transition-duration: 0.3s;
 }
 
 

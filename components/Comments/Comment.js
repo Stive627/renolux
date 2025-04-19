@@ -10,10 +10,13 @@ function Comment({comments}) {
     e.preventDefault()
   }
   return (
-    <div className={`border border-slate-300 w-full ${large &&'grid grid-cols-8'}`}>
-     <FormComment handleSubmit={handleSubmit} comment={comment} setComment={setComment}/> 
-     <DisplayComments comments={comments}/>
-    </div>
+    <>
+    <p className=' text-center text-slate-700 my-3'>Partagez votre expérience avec nos solutions pour aider les autres, s&#39;il vous plaît !</p>
+      <div className={`border border-slate-300 w-full ${large &&'grid grid-cols-8'}`}>
+      <FormComment handleSubmit={handleSubmit} comment={comment} setComment={setComment}/> 
+      <DisplayComments comments={comments}/>
+      </div>
+    </>
   )
 }
 

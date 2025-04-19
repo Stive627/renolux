@@ -14,17 +14,17 @@ const LinkMedia = ({icon, socialNetwork, url, borderColor}) => {
         <Link href={url} passHref legacyBehavior   className=' p-2  w-full cursor-pointer rounded-lg items-center'>
             <div className=' flex flex-row gap-3 items-center border rounded-md px-3 py-2' style={{borderColor:borderColor}}>
                 <span>{icon}</span>
-                <p className=' '>Nous suivre sur {socialNetwork}</p>
+                <p className=' text-slate-700'>Nous suivre sur {socialNetwork}</p>
             </div>
         </Link>
     )
 }
 
-const LinkPhone = () => (<div className=' flex flex-row gap-3 border rounded-md px-3 py-2'><span><LocalPhoneIcon/></span><p>Nous Joindre par telephone</p></div>)
+const LinkPhone = () => (<div className=' flex flex-row gap-3 border rounded-md px-3 py-2'><span><LocalPhoneIcon className=' text-slate-700' /></span><p className=' text-slate-700'>Nous Joindre par telephone</p></div>)
 
 const SocialMedia = () =>{
     const data = [['Facebook','rgba(75, 77, 199, 1)', <FacebookIcon sx={{color:'rgba(75, 77, 199, 1)'}} key={0}/>, 'https://www.facebook.com/profile.php?id=100084170042632&mibextid=ZbWKwL'],
-                  ['Instagram','black', <InstagramIcon  key={1}/>, 'https://www.instagram.com/renolux_cameroun?igsh=d2FrZjJmZG1yNTd6'],
+                  ['Instagram','black', <InstagramIcon className=' text-slate-700'  key={1}/>, 'https://www.instagram.com/renolux_cameroun?igsh=d2FrZjJmZG1yNTd6'],
                   ['Youtube', 'rgba(254, 0, 0, 1)', <YouTubeIcon sx={{color:'rgba(254, 0, 0, 1)'}} key={2}/>, '#']]
                   .map((elt, indx) => <LinkMedia key={indx} icon={elt[2]} borderColor={elt[1]}  url={elt[3]} socialNetwork={elt[0]}/>)
     const socialLinks = [...data, <LinkPhone key={8}/>]
@@ -44,7 +44,7 @@ function Localisation() {
             <Image width={200} height={200} className=' object-cover' src = {fetchLink('public/medias/happyClients.png')} alt='Clients satisfaits'/>
         </div>
         <div className=' col-span-1 flex items-center flex-col '>
-            <p className=' text-center'>Avec plus de 15 projets réalisés nous mettons toujours nos clients en accord avec notre professionnalismeet notre dévouement </p>
+            <p className=' text-center text-slate-700'>Avec plus de 15 projets réalisés nous mettons toujours nos clients en accord avec notre professionnalismeet notre dévouement </p>
             <br/>
             <button style={{color:'rgba(12, 140, 233, 1)'}} className=' cursor-pointer'>Parcourrir le catalogue <ArrowForwardIcon sx={{fontSize:24}}/> </button>
         </div>

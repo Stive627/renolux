@@ -7,7 +7,7 @@ function Footer() {
     const date = new Date()
     const [email, setEmail] = useState('')
     const large = useScreen()
-    const SingleLink = ({link}) =>(<Link href={link[0]}><div className=' flex flex-row gap-2 items-center'><ArrowForwardIosIcon/> <p>{link[1]}</p></div></Link>)
+    const SingleLink = ({link}) =>(<Link href={link[0]}><div className=' flex flex-row gap-2 items-center'><ArrowForwardIosIcon className=' text-slate-800'/> <p className=' text-slate-800'>{link[1]}</p></div></Link>)
   return (
     <div style={{backgroundColor:'rgba(12, 140, 233, 1)'}}>
         <div className={`w-full  px-3 py-2 pr-8 items-center ${large && 'flex justify-between'}`}>
@@ -15,9 +15,9 @@ function Footer() {
                 {[['#', 'Accueil'], ['#', 'Obtenir un devis'], ['#', ' Contact & jobs']].map((elt, indx) => <SingleLink key={indx} link={elt}/>)}
             </div>
             <div className={`flex flex-col gap-2 ${!large && 'mt-5'}`}>
-                <p>Abonnez pour a notre newsletter.</p>
+                <p className=' text-slate-900'>Abonnez pour a notre newsletter.</p>
                 <div className=' flex flex-row gap-1 w-full'>
-                    <input value={email} onChange={(e)=>setEmail(e.target.value)} className=' border border-black text-white h-9 rounded-md px-1 outline-blue-800 ' placeholder='Entrez votre email'/>
+                    <input value={email} onChange={(e)=>setEmail(e.target.value)} className=' border border-slate-800 text-white h-9 rounded-md px-1 outline-blue-800 ' placeholder='Entrez votre email'/>
                     <button className=' border bg-white h-9 px-2 rounded-md '>S&#39;abonner</button>
                 </div>
             </div>

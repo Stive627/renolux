@@ -29,7 +29,7 @@ function RightSmall(){
             <button onClick={()=> setShow(!show)} className=' p-2 border-x-gray-300'>{ show ? <CloseIcon className=' w-5 h-6'/> : <MenuIcon className=' w-5 h-6'/>}</button>
             <div className={` absolute top-12 bottom-0 left-0 right-0 h-screen w-screen   bg-white overflow-y-hidden ${!show && 'hidden'} block`}>
                         <div className='  w-full flex'>
-                            <div className=' flex flex-col justify-center  w-full divide-y divide-gray-300 gap-3 '>
+                            <div className=' flex flex-col justify-center  w-full divide-y divide-gray-300 gap-3'>
                                 {links.map((elt, indx) =><button key={indx} onClick={() => setShow(false)}><Link key={indx} href={elt.link} className = 'no-underline navhov'>{elt.title}</Link></button>)}
                             </div>
                         </div>
@@ -63,7 +63,7 @@ function Navbar() {
                 <LeftNav/>
                 { large? <RightLarge/>:<RightSmall/>}
             </div>
-            {visible && <hr className=' text-gray-300'/>}
+            {visible && <hr className=' text-slate-300'/>}
         </div>
   )
 }
