@@ -2,5 +2,9 @@ function sanitizeUrl(url){
     return url.replaceAll('\\', '/')
 }
 export default function sanitizeMedias(medias){
-    return medias.map((elt, indx) =>({...elt, url:sanitizeUrl(elt.url)}))
+    const sanitizedData =  medias.map((elt, indx) =>({...elt, url:sanitizeUrl(elt.url)}))
+    const placoplatre = sanitizedData.filter(elt => elt.category === 'Placoplatre')
+    const decoration = sanitizedData.filter(elt => elt.category === 'Decoration')
+    const peinture = sanitizedData.filter(elt => elt.category === 'Peinture')
+    return [...placoplatre, ...decoration, ...peinture]
 }

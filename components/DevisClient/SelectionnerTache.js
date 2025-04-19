@@ -1,15 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-function SelectionnerTache() {
-    const [show, setShow] = useState(false)
+function SelectionnerTache({task, setTask}) {
   return (
-    <div className=' border relative w-full' style={{color:'rgba(95, 99, 104, 1)'}}>
-        <button onClick={()=>setShow(!show)}>Selectionner la tache</button>
-{show && <div className='flex flex-col divide-x absolute'>
-            {['Placoplatre', 'Peinture', 'Decoration'].map((elt, indx) => <button key={indx} className='w-full'>{elt}</button>)}
-        </div>}
-      
-    </div>
+    <select defaultValue={'tache'} className='w-full border border-slate-400 text-center rounded-md h-12 outline-none' value={task} onChange={(e)=>setTask(e.target.value)}>
+      <option className='hover:text-black'>Placoplatre</option>
+      <option>Decoration</option>
+      <option>Peinture</option>
+    </select>
+    
   )
 }
 

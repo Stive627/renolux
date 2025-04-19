@@ -7,7 +7,6 @@ export default function useScreen(){
         setWidth(window.innerWidth)
         function handleWidth(){
             setWidth(window.innerWidth)
-            console.log(window.innerHeight)
         }
         window.addEventListener('resize', handleWidth)
         return () => window.removeEventListener('resize', handleWidth)
