@@ -3,11 +3,12 @@ import React, { useState } from 'react'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import useScreen from '@/hook/useScreen';
 
+
 function Footer() {
     const date = new Date()
     const [email, setEmail] = useState('')
     const large = useScreen()
-    const SingleLink = ({link}) =>(<Link href={link[0]}><div className=' flex flex-row gap-2 items-center'><ArrowForwardIosIcon className=' text-slate-800'/> <p className=' text-white'>{link[1]}</p></div></Link>)
+    const SingleLink = ({link}) =>(<Link href={link[0]}><div className=' flex flex-row gap-2 items-center'><ArrowForwardIosIcon className=' text-slate-800'/> <p className=' '>{link[1]}</p></div></Link>)
   return (
     <div style={{backgroundColor:'rgba(12, 140, 233, 1)'}}>
         <div className={`w-full  px-3 py-2 pr-8 items-center ${large && 'flex justify-between'}`}>
