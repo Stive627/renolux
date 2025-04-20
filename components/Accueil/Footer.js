@@ -19,7 +19,7 @@ function Footer() {
                 <p className=' text-slate-900'>Abonnez pour a notre newsletter.</p>
                 <div className=' flex flex-row gap-1 w-full'>
                     <input value={email} onChange={(e)=>setEmail(e.target.value)} className=' border border-blue-800 bg-white   text-black  h-9 rounded-sm px-1 outline-blue-800' placeholder='Entrez votre email'/>
-                    <button className='  bg-blue-600 border border-blue-700 text-white h-9 px-2 rounded-md '>S&#39;abonner</button>
+                    <button className=' bg-slate-900 border border-slate-900 text-white h-9 px-2 rounded-md '>S&#39;abonner</button>
                 </div>
             </div>
         </div>

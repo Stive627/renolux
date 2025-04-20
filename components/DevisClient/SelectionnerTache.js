@@ -1,11 +1,12 @@
 import React from 'react'
 
-function SelectionnerTache({task, setTask}) {
+function SelectionnerTache({task, handleChange}) {
   return (
-    <select defaultValue={'tache'} className='w-full border  border-slate-400 text-center rounded-md h-12 outline-none' value={task} onChange={(e)=>setTask(e.target.value)}>
-      <option >Placoplatre</option>
-      <option>Decoration</option>
-      <option>Peinture</option>
+    <select defaultValue='Selectionnez une tâche' name='task' className='w-full border  border-slate-400 text-center rounded-md h-12 outline-none' onChange={handleChange}>
+      <option value='Placoplatre'>Placoplatre</option>
+      <option value='Decoration'>Decoration</option>
+      <option value='Peinture'>Peinture</option>
+      <option value='Selectionnez une tâche'>Selectionnez une tâche</option>
     </select>
     
   )
