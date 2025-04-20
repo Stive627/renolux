@@ -35,10 +35,10 @@
 .lineargrad{
     /* background-image: linear-gradient(red, yellow); */
 
-    background-image: linear-gradient(to right, #6688e6,#75d7e4,#75e4a7);
+    background-image: linear-gradient(to right, #072a8a,#75d7e4,#75e4a7);
 }
 .lineargradtext{
-        background: -webkit-linear-gradient(blue, green);
+        background: -webkit-linear-gradient( blue, rgb(101, 214, 148));
         background-clip: text;
         -webkit-text-fill-color: transparent;
 }

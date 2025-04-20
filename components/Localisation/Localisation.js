@@ -8,13 +8,13 @@ import Link from 'next/link';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import useScreen from '@/hook/useScreen';
 
-const LinkMedia = ({icon, socialNetwork, url, borderColor}) => {
+const LinkMedia = ({icon, socialNetwork, url}) => {
     return(
-        <Link href={url} passHref legacyBehavior   className=' p-2  w-full cursor-pointer rounded-lg items-center'>
-            <div className=' flex flex-row gap-3 items-center px-3 py-2'>
+        <Link href={url} passHref legacyBehavior  className=' p-2  w-full cursor-pointer rounded-lg items-center'>
+            <a target='_blank' className=' flex flex-row gap-3 items-center px-3 py-2'>
                 <span>{icon}</span>
                 <p className=' text-slate-700'>Nous suivre sur {socialNetwork}</p>
-            </div>
+            </a>
         </Link>
     )
 }

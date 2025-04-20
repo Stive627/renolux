@@ -23,7 +23,7 @@ function HomeSectionRight({plans}){
     return(
         <div className = ' ml-1 col-span-4'>
             <div>
-                <span className={` text-slate-700 ${large ? 'text-[55px]' : 'text-[35px]'} `}>Nous sommes recommandés pour:</span>{large &&<br/>}
+                <span className={` ${large ? 'text-[55px]' : 'text-[35px]'} `}>Nous sommes recommandés pour:</span>{large &&<br/>}
             </div>
             <div className=' flex justify-start pb-2'>
                 <div className=' rounded-sm lineargradtext '><Typewriter arr={['Des solutions innovantes', 'Un service de qualité', 'le  respect des delais', 'Une approche orientée client.']} className={`${large?' text-[40px]' : ' text-[25px]'} font-bold`} ms={100}/></div>
@@ -36,7 +36,7 @@ function HomeSectionRight({plans}){
 function HomeSection({plans}){
     const large = useScreen()
     return(
-        <div className=' mt-20'>
+        <div className={`${large?'mt-20':'mt-14 '}`}>
         {
             large ? 
             <div className='grid grid-cols-7 '>
