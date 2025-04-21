@@ -6,7 +6,6 @@ import '../../App.css'
 import fetchLink from '@/functions/fetchLink';
 import Image from 'next/image';
 import handleNavigate from '@/functions/handleNavigate';
-import useScroll from '@/hook/useScroll';
 
 function highlightNav(elt){
     if(typeof window !== 'undefined'){
@@ -56,21 +55,15 @@ function RightSmall(){
 }
 
 const RightLarge = () => {
-    const y = useScroll()
-    console.log(y)
     return(<div className='flex flex-row items-center gap-4'>{links.map((elt, indx) => <button onClick={()=>handleNavigate(elt)} key={indx} className = {`navhov cursor-pointer text-[18px] ${highlightNav(elt) && 'text-blue-800'}`}>{elt}</button>)}</div>)  
 }
 
 function Navbar() { 
     const large = useScreen()
-    const [visible, setVisible] = useState(false)
+    const [visible, setVisible] = useState(0)
     const handleVisible = () => {
-        if(window.scrollY > 0){
-            setVisible(true)
-        }
-        else{
-            setVisible(false)
-        }
+        const vis = Math.floor((window.scrollY/(document.body.clientHeight - window.innerHeight))*100)
+        setVisible(vis)
     }
     useEffect(()=>{
         window.addEventListener('scroll', handleVisible)
@@ -82,7 +75,7 @@ function Navbar() {
                 <LeftNav/>
                 { large? <RightLarge/>:<RightSmall/>}
             </div>
-            {visible && <hr className=' text-slate-300'/>}
+            {visible>0 && <hr style={{width:`${visible}%`}} className=' text-blue-400'/>}
         </div>
   )
 }
