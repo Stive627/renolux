@@ -6,7 +6,7 @@ export default function useWriter(data){
     const contentLength = content.length
     useEffect(()=>{
         if(currIndx < contentLength){
-            const timeId = setTimeout(()=> setCurrIndx(prev => prev + 1), 500);    
+            const timeId = setTimeout(()=> setCurrIndx(prev => prev + 1), 50);    
             return ()=> clearTimeout(timeId)
 
         }
