@@ -1,9 +1,12 @@
 import React from 'react'
+import { LeftNav } from '../Accueil/Navbar'
+import FormAdd from './FormAdd'
 
 function Admin() {
   return (
     <div>
-      <p>Welcome to the Admin page</p>
+      <LeftNav/>
+      <FormAdd/>
     </div>
   )
 }
