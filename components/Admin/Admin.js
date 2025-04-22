@@ -23,6 +23,8 @@ function handleClickSmallNav(indx){
   return (
     <div className=' h-screen w-screen overflow-hidden'>
       {large ? <LeftNav/>:<div className=' flex flex-row items-center gap-4 pl-3'> <button onClick={openNav}><MenuIcon sx={{fontSize:32}}/></button><LeftNav/></div>}
+      <hr className=' text-gray-300'/>
+
       <SmallSidebar closeNav={closeNav} sidenavRef={sidenavRef} handleClickSmallNav={handleClickSmallNav} currIndx={currIndx}/>
       <div className={`${large ? 'grid  grid-cols-12 h-full':' h-full w-full'}`}>
         {large && <Sidebar setCurrIndx={setCurrIndx} currIndx={currIndx}/>}
