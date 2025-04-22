@@ -6,22 +6,22 @@ import Image from 'next/image';
 import axios from 'axios';
 import fetchLink from '@/functions/fetchLink';
 
-function FormAdd({handleCloseForm}) {
+function FormAdd({handleCloseForm, setMedias, medias}) {
     const [media, setMedia] = useState({category:'', img:undefined})
     const large = useScreen()
     const validMedia = media.category && media.img
     const handleSubmit = (e) => {
         e.preventDefault()
         const formData = new FormData()
-        formData.append('url', media.img)
+        formData.append('img', media.img[0])
         formData.append('category', media.category)
-        axios({url:fetchLink('media/add'), method:'POST ', data:formData})
-        .then((val) => console.log(val.data))
-        .catch((err) => console.log(err.response.data))
+        axios({url:fetchLink('media/add'), method:'POST', data:formData})
+        .then((val) => {setMedias([...medias, val.data]); handleCloseForm()})
+        .catch((err) => console.log(err))
     }
   return(
     <div className=' flex justify-center col-span-10'>
-        <form  onSubmit={handleSubmit} className={`${large ? 'w-1/5':'w-4/5 mt-6'} flex flex-col gap-3`}>
+        <form  onSubmit={handleSubmit} className={`${large ? 'w-96':'w-4/5 mt-6'} flex flex-col gap-3`}>
             <p className=' font-semibold text-[19px]'>Ajouter un media</p>
             <SelectionnerTache task={media.category} handleChange={(e)=> setMedia({...media, category:e.target.value})}/>
             <>

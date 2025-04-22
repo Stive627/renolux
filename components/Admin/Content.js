@@ -3,14 +3,14 @@ import Home from './Home'
 import Comment from './Comment'
 import Gallery from './Gallery'
 
-function Content({currIndx}) {
+function Content({currIndx, setCurrIndx,comments, setComments, medias, setMedias}) {
   switch(currIndx){
     case 0:
-      return <Home/>
+      return <Home comment={comments} setCurrIndx={setCurrIndx}/>
     case 1:
-      return <Comment/>
+      return <Comment comments={comments} setComments={setComments}/>
     case 2:
-      return <Gallery/>
+      return <Gallery setMedia={setMedias} medias={medias}/>
     default:
       return <p>An error occured</p>
   }
