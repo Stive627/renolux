@@ -12,7 +12,7 @@ function Admin() {
   const large = useScreen()
   const [currIndx, setCurrIndx] = useState(0)
   const [comments, setComments] = useState('')
-  const [medias, setMedias] = useState('')
+  const [medias, setMedias] = useState([])
   useEffect(()=>{
     axios({url:fetchLink('comment'), method:'GET'})
     .then((val) => setComments(val.data))
@@ -35,7 +35,7 @@ function handleClickSmallNav(indx){
   closeNav()
 }
   return (
-    <div className=' h-screen w-screen overflow-hidden'>
+    <div className=' h-screen w-screen overflow-y-scroll'>
       {large ? <LeftNav/>:<div className=' flex flex-row items-center gap-4 pl-3'> <button onClick={openNav}><MenuIcon sx={{fontSize:32}}/></button><LeftNav/></div>}
       <hr className=' text-gray-300'/>
 
