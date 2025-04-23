@@ -6,7 +6,7 @@ import Gallery from './Gallery'
 function Content({currIndx, setCurrIndx,comments, setComments, medias, setMedias}) {
   switch(currIndx){
     case 0:
-      return <Home comment={comments} setCurrIndx={setCurrIndx}/>
+      return <Home comment={comments} setCurrIndx={setCurrIndx} medias={medias}/>
     case 1:
       return <Comment comments={comments} setComments={setComments}/>
     case 2:

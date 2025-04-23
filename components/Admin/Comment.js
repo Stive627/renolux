@@ -7,7 +7,7 @@ function Comment({comments, setComments}) {
   return (
     <div className=' col-span-10 p-4 overflow-y-scroll h-full'>
       <p className=' font-bold text-[21px]'>Comments</p>
-      <div className=' flex flex-col mt-3 gap-3'>
+      <div className=' flex flex-col mt-3 gap-3 divide-y divide-gray-200'>
         {comments.map((elt, indx) => <SingleCom key={indx} comment={elt} indx={indx} hasDeleteButton={true}/>)}
       </div> 
     </div>

@@ -10,7 +10,7 @@ function SingleCom({comment, indx, hasDeleteButton =false}) {
   const [show, setShow] = useState(false)
   const large = useScreen()
   return (
-    <div onMouseEnter={()=>setShow(true)} onMouseLeave={()=>setShow(false)} className=' w-full flex flex-col gap-2'>
+    <div onMouseEnter={()=>setShow(true)} onMouseLeave={()=>setShow(false)} className=' w-full flex flex-col gap-2  pb-3'>
       <div className=' flex flex-row  justify-between items-center gap-2'>
         <div className=' flex flex-row gap-3'>
           <div style={{backgroundColor:getAvatarBgColor(indx)}} className=' w-12 h-12 flex items-center justify-center rounded-full'>

@@ -5,7 +5,7 @@ import React, { useRef, useState } from 'react'
 import '../../App.css'
 import useScreen from '@/hook/useScreen';
 
-function SingleCategory({medias}) {
+function SingleCategory({medias, title}) {
     const [showFull, setShowFull] = useState(false)
     const singleCatecoryRef = useRef()
     const large = useScreen()
@@ -25,16 +25,16 @@ function SingleCategory({medias}) {
     <div ref={singleCatecoryRef} style={{height:large?'525px':'370px'}} className=' mt-3 singleCatecory'>
         <div className=' relative  mt-5 w-full'>
             <hr style={{color:'rgba(221, 221, 221, 1)'}} className=''/>
-            <button style={{backgroundColor:'rgba(153, 179, 255, 1)', color:'rgba(41, 78, 191, 1)'}} className=' w-32 absolute right-1/2 -top-2 rounded-md z-40'>Placoplâtre</button>
+            <button style={{backgroundColor:'rgba(153, 179, 255, 1)', color:'rgba(41, 78, 191, 1)'}} className=' w-32 absolute right-1/2 -top-2 rounded-md z-40'>{title}</button>
         </div>
         <div className=' relative w-full'>
             <div className=' flex justify-center'>
             <div className={`mt-9 grid ${large ? 'grid-cols-3':' grid-cols-2'} gap-2`}>
-                {medias.map((elt,indx) => <Image key={indx} alt={`media no${indx}`} className={`${large ? (indx >=3 && !showFull && 'opacity-30'):(indx>=4 && !showFull && 'opacity-30')}`} src={fetchLink(elt.url)} width={400} height={400}/>)}
+                {medias.map((elt,indx) => <Image key={indx} alt={`media no${indx}`} src={fetchLink(elt.url)} width={400} height={400}/>)}
             </div>
             </div>
-            {!showFull && <button onClick={handleFull} style={{top:large?'450px':'310px'}} className=' bg-white border-gray-400 absolute right-1/2 border p-1 rounded-lg'>Show more <KeyboardArrowDownIcon/></button>}
-            {showFull && <button onClick={handleShowLess} className=' absolute right-1/2 bottom-20 bg-white border-gray-400 border p-1 rounded-lg'>Show less <KeyboardArrowDownIcon sx={{rotate:'180deg'}}/></button>}
+            {!showFull &&<div style={{top:large?'450px':'310px'}} className='absolute right-1/2'> <button onClick={handleFull}  className=' bg-white border-gray-400  border p-1 rounded-lg'>Show more <KeyboardArrowDownIcon/></button></div>}
+            {showFull && <div className='absolute right-1/2 bottom-20'><button onClick={handleShowLess} className='  bg-white border-gray-400 border p-1 rounded-lg'>Show less <KeyboardArrowDownIcon sx={{rotate:'180deg'}}/></button></div>}
 
         </div>
     </div>
