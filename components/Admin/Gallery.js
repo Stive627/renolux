@@ -12,8 +12,13 @@ function Gallery( {setMedia, medias}) {
   const large = useScreen()
   const singleCategoryRef = useRef(new Map())
     const handleFull = (indx) => {
+      const arr = [0, 1, 2] 
+      const arrf= arr.filter(elt => elt !== indx)
+      const node1 = singleCategoryRef.current.get(arrf[0])
+      const node2 = singleCategoryRef.current.get(arrf[1])
       const node = singleCategoryRef.current.get(indx)
-      // node.style.height='1500px'
+      node1.style.height=large?'525px':'370px'
+      node2.style.height=large?'525px':'370px'
       node.style.overflow='scroll'
       node.scrollTo({top:10000, behavior:'smooth'})
       setCurrIndx(indx)
