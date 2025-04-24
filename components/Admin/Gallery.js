@@ -14,11 +14,16 @@ function Gallery( {setMedia, medias}) {
     const handleFull = (indx) => {
       const arr = [0, 1, 2] 
       const arrf= arr.filter(elt => elt !== indx)
+      console.log(arrf)
       const node1 = singleCategoryRef.current.get(arrf[0])
       const node2 = singleCategoryRef.current.get(arrf[1])
       const node = singleCategoryRef.current.get(indx)
+      node1.scrollTo({top:0, behavior:'smooth'})
       node1.style.height=large?'525px':'370px'
+      node1.style.overflow='hidden'
+      node2.scrollTo({top:0, behavior:'smooth'})
       node2.style.height=large?'525px':'370px'
+      node2.style.overflow='hidden'
       node.style.overflow='scroll'
       node.scrollTo({top:10000, behavior:'smooth'})
       setCurrIndx(indx)
