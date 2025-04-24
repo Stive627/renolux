@@ -1,28 +1,15 @@
 import fetchLink from '@/functions/fetchLink'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Image from 'next/image'
-import React, { useRef, useState } from 'react'
+import React, {useState } from 'react'
 import '../../App.css'
 import useScreen from '@/hook/useScreen';
 
-function SingleCategory({medias, title}) {
+function SingleCategory({medias, title, handleRef, handleFull, handleShowLess, indx, currIndx}) {
     const [showFull, setShowFull] = useState(false)
-    const singleCatecoryRef = useRef()
     const large = useScreen()
-    const handleFull = () => {
-        singleCatecoryRef.current.style.height='100%'
-        singleCatecoryRef.current.style.overflow='scroll'
-        setShowFull(true)
-    }
-    const handleShowLess = () => {
-        singleCatecoryRef.current.scrollTo({top:0, behavior:'smooth'})
-        singleCatecoryRef.current.style.height=large?'525px':'370px'
-        singleCatecoryRef.current.style.overflow='hidden'
-
-        setShowFull(false)
-    }
   return (
-    <div ref={singleCatecoryRef} style={{height:large?'525px':'370px'}} className=' mt-3 singleCatecory'>
+    <div ref={handleRef} style={{height:large?'525px':'370px'}} className=' mt-3 singleCatecory'>
         <div className=' relative  mt-5 w-full'>
             <hr style={{color:'rgba(221, 221, 221, 1)'}} className=''/>
             <button style={{backgroundColor:'rgba(153, 179, 255, 1)', color:'rgba(41, 78, 191, 1)'}} className=' w-32 absolute right-1/2 -top-2 rounded-md z-40'>{title}</button>
@@ -33,8 +20,8 @@ function SingleCategory({medias, title}) {
                 {medias.map((elt,indx) => <Image key={indx} alt={`media no${indx}`} src={fetchLink(elt.url)} width={400} height={400}/>)}
             </div>
             </div>
-            {!showFull &&<div style={{top:large?'450px':'310px'}} className='absolute right-1/2'> <button onClick={handleFull}  className=' bg-white border-gray-400  border p-1 rounded-lg'>Show more <KeyboardArrowDownIcon/></button></div>}
-            {showFull && <div className='absolute right-1/2 bottom-20'><button onClick={handleShowLess} className='  bg-white border-gray-400 border p-1 rounded-lg'>Show less <KeyboardArrowDownIcon sx={{rotate:'180deg'}}/></button></div>}
+            {+currIndx !== indx &&<div style={{top:large?'450px':'310px'}} className='absolute right-1/2'> <button onClick={()=>handleFull(indx)}  className=' bg-white border-gray-400  border p-1 rounded-lg'>Show more <KeyboardArrowDownIcon/></button></div>}
+            <div className='absolute right-1/2 bottom-20'><button onClick={()=>handleShowLess(indx)} className='  bg-white border-gray-400 border p-1 rounded-lg'>Show less <KeyboardArrowDownIcon sx={{rotate:'180deg'}}/></button></div>
 
         </div>
     </div>
