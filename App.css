@@ -98,21 +98,24 @@
 }
 
 .subscribe{
-   transition: 2s;
-   animation: subscribeAnim 2s infinite;
-   border: 7px
+   animation: subscribeAnim 3s infinite;
+   border: 7px;
+   background-color: rgba(78, 216, 98, 1);
+   
 }
-/* @keyframes subscribeAnim {
+@keyframes subscribeAnim {
     0%{
         border: 7px gray solid solid;
     }
     66%{
-        border: 7px  green solid;
+        border: 7px  white solid;
+        transform: translateY(-9);
     }
     100%{
         border: 7px blue solid solid;
+        transform: translateY(0);
     }
     
-} */
+}
 
 
