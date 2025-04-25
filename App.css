@@ -109,13 +109,18 @@
     }
     66%{
         border: 7px  white solid;
-        transform: translateY(-12);
+        transform: translateY(-8);
     }
     100%{
-        border: 7px blue solid solid;
+        border: 7px black solid solid;
         transform: translateY(0);
     }
     
+}
+.contact{
+    transition: 0.5s;
+    height: 0;
+    overflow-y: hidden;
 }
 
 
