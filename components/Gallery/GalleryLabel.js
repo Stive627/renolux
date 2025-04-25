@@ -4,7 +4,7 @@ import React from 'react'
 function GalleryLabel({currService}) {
 
     const large = useScreen()
-    const services = ['Placoplatre', 'Decoration', 'Peinture']
+    const services = ['Placoplâtre', 'Decoration', 'Peinture']
 
     return (
     <div className=' flex justify-center w-full'>

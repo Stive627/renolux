@@ -20,17 +20,18 @@ export default function Home() {
 
   useEffect(() => {
     axios({url:fetchLink('media/show'), method:'GET'})
-    .then((value) => {setMedias(sanitizeMedias(value.data))})
+    .then((value) => {
+      const med = [...value.data]
+      const plansMed = med.filter(elt => elt.category === 'Plans')
+      const placoMed = med.filter(elt => elt.category === 'Placoplâtre')
+      const decoMed = med.filter(elt => elt.category === 'Decoration')
+      const peintureMed = med.filter(elt => elt.category === 'Peinture')
+      setMedias([...placoMed, ...decoMed, ...peintureMed])
+      setPlans(plansMed)
+    })
     .catch((reason) => console.log('An error occured', reason))
   },[])
   
-  useEffect(() => {
-    axios({method:'GET', url:fetchLink('media/plans'), headers:{"Content-Type":"application/json"}})
-    .then(value =>{
-        setPlans(value.data)
-    })
-    .catch(err => console.error(err))
-}, [])
 useEffect(() => {
   axios({method:'GET', url:fetchLink('comment')})
   .then(value =>{

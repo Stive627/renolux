@@ -11,14 +11,14 @@ const Plans = ({plans}) => {
         <div className={`flex w-full ${large? 'justify-end':'justify-center'}`}>
             <div className={`border border-gray-200 p-2 rounded-sm flex flex-col gap-1 overflow-hidden ${large ? 'w-[75vh] h-[60vh]' :' h-[50vh]' }`}>
                 <div className='flex flex-col gap-1 scrollVertical '>
-                    {plans?.map((elt, indx) => <Image key={indx} src={fetchLink('public/plans/'+elt)} className={'  w-full h-full rounded-sm'} alt={`plan de placo n0${indx}`} width={300} height={300}/>)}
+                    {plans?.map((elt, indx) => <Image key={indx} src={fetchLink(elt.url)} className={'  w-full h-full rounded-sm'} alt={`plan de placo n0${indx}`} width={300} height={300}/>)}
                 </div> 
             </div>            
         </div>
     )     
 }
 
-function HomeSectionRight({plans}){
+function HomeSectionRight({plans}){ 
     const large = useScreen()
     return(
         <div className = ' ml-1 col-span-4'>
