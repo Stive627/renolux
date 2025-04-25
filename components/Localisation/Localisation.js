@@ -19,7 +19,7 @@ const LinkMedia = ({icon, socialNetwork, url}) => {
     )
 }
 
-const LinkPhone = () => (<div className=' flex flex-row gap-3  rounded-md px-3 py-2'><span><LocalPhoneIcon className=' text-slate-700' /></span><p className=' text-slate-700'>Nous Joindre par telephone</p></div>)
+const LinkPhone = () => (<div className=' flex flex-row gap-3  rounded-md px-3 py-2'><span><LocalPhoneIcon className=' text-slate-700' /></span><a href='tel:691098037' className=' text-slate-700'>Nous Joindre par telephone</a></div>)
 
 const SocialMedia = () =>{
     const data = [['Facebook','rgba(75, 77, 199, 1)', <FacebookIcon sx={{color:'rgba(75, 77, 199, 1)'}} key={0}/>, 'https://www.facebook.com/profile.php?id=100084170042632&mibextid=ZbWKwL'],
