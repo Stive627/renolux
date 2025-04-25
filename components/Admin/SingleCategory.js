@@ -41,13 +41,13 @@ function SingleCategory({medias, title, handleRef, handleFull, handleShowLess, i
             <div className={`mt-9 grid ${large ? 'grid-cols-3':' grid-cols-2'} gap-2`}>
                 {medias.map((elt,indx) => <Image className=' cursor-pointer' onClick={() => handleClick({url:elt.url, id:elt._id, indx:indx, date:elt.createdAt})} key={indx} alt={`media no${indx}`} src={fetchLink(elt.url)} width={400} height={400}/>)}
             </div>
-            <div className=' absolute bottom-0 w-full'>
-            <div className=' w-full  flex justify-center'>
-              <button onClick={()=>handleShowLess(indx)} className='  bg-white border-gray-400 border p-1 rounded-lg'>Show less <KeyboardArrowDownIcon sx={{rotate:'180deg'}}/></button>
-              </div>
-              </div>
+            {medias.length >3 && <div className=' absolute bottom-0 w-full'>
+                                    <div className=' w-full  flex justify-center'>
+                                      <button onClick={()=>handleShowLess(indx)} className='bg-white border-gray-400 border p-1 rounded-lg mb-4'>Show less <KeyboardArrowDownIcon sx={{rotate:'180deg'}}/></button>
+                                    </div>
+                                  </div>}
             </div>
-            {+currIndx !== indx &&<div style={{top:large?'450px':'310px'}} className='absolute w-full'> 
+            {+currIndx !== indx && medias.length >3 && <div style={{top:large?'450px':'310px'}} className='absolute w-full'> 
                 <div className=' w-full  flex justify-center'>
                   <button onClick={()=>handleFull(indx)}  className=' bg-white border-gray-400  border p-1 rounded-lg'>Show more <KeyboardArrowDownIcon/></button>
                 </div>

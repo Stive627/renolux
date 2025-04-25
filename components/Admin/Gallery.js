@@ -10,6 +10,12 @@ function Gallery( {setMedia, medias}) {
   const handleCloseForm = () => setShowForm(false)
   const [currIndx, setCurrIndx] = useState(3)
   const large = useScreen()
+  const med = [...medias]
+  const plansMed = med.filter(elt => elt.category === 'Plans')
+  const placoMed = med.filter(elt => elt.category === 'Placoplâtre')
+  const decoMed = med.filter(elt => elt.category === 'Decoration')
+  const peintureMed = med.filter(elt => elt.category === 'Peinture')
+  console.log(plansMed)
   const singleCategoryRef = useRef(new Map())
     const handleFull = (indx) => {
       const arr = [0, 1, 2] 
@@ -40,7 +46,7 @@ function Gallery( {setMedia, medias}) {
     <div className=' col-span-10 ' style={{borderTopColor:'rgba(226, 221, 221, 1)'}}>
       <button onClick={handleShowForm} style={{backgroundColor:'rgba(57, 55, 55, 1)'}} className=' fixed bottom-5 right-5 p-2 rounded-full cursor-pointer z-30'><AddIcon sx={{color:'white'}}/></button>
       <div>
-        {['Placoplâtre', 'Decoration', 'Peinture'].map((elt, indx) => <SingleCategory setMedia={setMedia} currIndx={currIndx} indx={indx} handleFull={handleFull} handleShowLess={handleShowLess} handleRef={(node) => singleCategoryRef.current.set(indx, node)}  key={indx} title={elt} medias={medias.slice(0,10)}/>)}
+        {[{title:'Plans', data:plansMed}, {title:'Placoplâtre', data:placoMed}, {title:'Decoration', data:decoMed}, {title:'Peinture', data:peintureMed}].map((elt, indx) => <SingleCategory setMedia={setMedia} currIndx={currIndx} indx={indx} handleFull={handleFull} handleShowLess={handleShowLess} handleRef={(node) => singleCategoryRef.current.set(indx, node)}  key={indx} title={elt.title} medias={elt.data}/>)}
       </div>
       
     </div>
