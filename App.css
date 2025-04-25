@@ -100,7 +100,7 @@
 .subscribe{
    animation: subscribeAnim 3s infinite;
    border: 7px;
-   background-color: rgba(78, 216, 98, 1);
+   background-color: orange;
    
 }
 @keyframes subscribeAnim {
@@ -109,7 +109,7 @@
     }
     66%{
         border: 7px  white solid;
-        transform: translateY(-9);
+        transform: translateY(-12);
     }
     100%{
         border: 7px blue solid solid;
