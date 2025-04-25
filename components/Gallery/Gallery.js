@@ -11,7 +11,7 @@ function Gallery({medias}) {
     if(medias){
       let intervalId = setTimeout(() => {
         setCurrentIndx((currentIndx + 1) % medias.length)
-        setCurrService(['Placoplatre', 'Decoration', 'Peinture'].indexOf(medias[currentIndx].category));
+        setCurrService(['Placoplâtre', 'Decoration', 'Peinture'].indexOf(medias[currentIndx].category));
       }, 2000);
       return ()=> clearTimeout(intervalId)
     }
