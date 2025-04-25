@@ -6,7 +6,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import useScreen from '@/hook/useScreen';
 
 
-function SingleCom({comment, indx, hasDeleteButton =false}) {
+function SingleCom({comment, indx, hasDeleteButton =false, handleDelete}) {
   const [show, setShow] = useState(false)
   const large = useScreen()
   return (
@@ -21,7 +21,7 @@ function SingleCom({comment, indx, hasDeleteButton =false}) {
             <p>{handleDate(comment.updatedAt)}</p>
           </div>
         </div>
-        {hasDeleteButton && <div className={`${large?(show ?'block':'hidden'):'block'}`}><DeleteIcon sx={{color:'gray'}}/></div>}
+        {hasDeleteButton && <button onClick={()=> handleDelete()} className={`${large?(show ?'block':'hidden'):'block'}`}><DeleteIcon sx={{color:'gray'}}/></button>}
       </div>
       <div className='flex  gap-2'>
         {Array(5).fill().map((elt, indx) => <button key={indx}><StarOutlineIcon  sx={{color:'blue',fontSize:23, backgroundColor:(+indx + 1 <= comment.stars)?'rgba(179, 196, 233, 1)':'transparent'}} className=' rounded-full cursor-pointer w-1/2'/></button>)}

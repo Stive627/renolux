@@ -38,10 +38,11 @@ function Gallery( {setMedia, medias}) {
   if(showForm) return <FormAdd setMedias={setMedia} medias={medias} handleCloseForm={handleCloseForm}/>
   return(
     <div className=' col-span-10 ' style={{borderTopColor:'rgba(226, 221, 221, 1)'}}>
-      <button onClick={handleShowForm} style={{backgroundColor:'rgba(57, 55, 55, 1)'}} className=' fixed bottom-5 right-5 p-2 rounded-full cursor-pointer'><AddIcon sx={{color:'white'}}/></button>
+      <button onClick={handleShowForm} style={{backgroundColor:'rgba(57, 55, 55, 1)'}} className=' fixed bottom-5 right-5 p-2 rounded-full cursor-pointer z-30'><AddIcon sx={{color:'white'}}/></button>
       <div>
-        {['Placoplâtre', 'Decoration', 'Peinture'].map((elt, indx) => <SingleCategory currIndx={currIndx} indx={indx} handleFull={handleFull} handleShowLess={handleShowLess} handleRef={(node) => singleCategoryRef.current.set(indx, node)}  key={indx} title={elt} medias={medias.slice(0,10)}/>)}
+        {['Placoplâtre', 'Decoration', 'Peinture'].map((elt, indx) => <SingleCategory setMedia={setMedia} currIndx={currIndx} indx={indx} handleFull={handleFull} handleShowLess={handleShowLess} handleRef={(node) => singleCategoryRef.current.set(indx, node)}  key={indx} title={elt} medias={medias.slice(0,10)}/>)}
       </div>
+      
     </div>
   )
 }

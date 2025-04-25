@@ -16,14 +16,14 @@ function FormAdd({handleCloseForm, setMedias, medias}) {
         formData.append('img', media.img[0])
         formData.append('category', media.category)
         axios({url:fetchLink('media/add'), method:'POST', data:formData})
-        .then((val) => {setMedias([...medias, val.data]); handleCloseForm()})
+        .then((val) => {setMedias([val.data, ...medias]); console.log(val.data); handleCloseForm()})
         .catch((err) => console.log(err))
     }
   return(
     <div className=' flex justify-center col-span-10'>
         <form  onSubmit={handleSubmit} className={`${large ? 'w-96':'w-4/5 mt-6'} flex flex-col gap-3`}>
             <p className=' font-semibold text-[19px]'>Ajouter un media</p>
-            <SelectionnerTache task={media.category} handleChange={(e)=> setMedia({...media, category:e.target.value})}/>
+            <SelectionnerTache visibilityOfPlan={true} task={media.category} handleChange={(e)=> setMedia({...media, category:e.target.value})}/>
             <>
                 { 
                 media.img ? <>   
