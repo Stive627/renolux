@@ -46,7 +46,7 @@ function Gallery( {setMedia, medias}) {
     <div className=' col-span-10 ' style={{borderTopColor:'rgba(226, 221, 221, 1)'}}>
       <button onClick={handleShowForm} style={{backgroundColor:'rgba(57, 55, 55, 1)'}} className=' fixed bottom-5 right-5 p-2 rounded-full cursor-pointer z-30'><AddIcon sx={{color:'white'}}/></button>
       <div>
-        {[{title:'Plans', data:plansMed}, {title:'Placoplâtre', data:placoMed}, {title:'Decoration', data:decoMed}, {title:'Peinture', data:peintureMed}].map((elt, indx) => <SingleCategory setMedia={setMedia} currIndx={currIndx} indx={indx} handleFull={handleFull} handleShowLess={handleShowLess} handleRef={(node) => singleCategoryRef.current.set(indx, node)}  key={indx} title={elt.title} medias={elt.data}/>)}
+        {[{title:'Peinture', data:peintureMed},{title:'Plans', data:plansMed}, {title:'Placoplâtre', data:placoMed}, {title:'Decoration', data:decoMed}, ].map((elt, indx) => <SingleCategory setMedia={setMedia} currIndx={currIndx} indx={indx} handleFull={handleFull} handleShowLess={handleShowLess} handleRef={(node) => singleCategoryRef.current.set(indx, node)}  key={indx} title={elt.title} medias={elt.data}/>)}
       </div>
       
     </div>
