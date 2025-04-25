@@ -2,6 +2,7 @@ import React from 'react'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import useScreen from '@/hook/useScreen';
 import handleNavigate from '@/functions/handleNavigate';
+import '../../App.css'
 
 
 function Footer() {
@@ -17,7 +18,10 @@ function Footer() {
             <div className={`flex flex-col w-96 gap-2 justify-center ${!large && 'mt-5'}`}>
                 <p className=' text-slate-900 text-center'>Rejoignez notre groupe WhatsApp pour rester informé de nos dernières offres et découvrir une large gamme de services pour tous vos travaux de rénovation </p>
                 <div className=' flex justify-center'>
-                    <button className=' border cursor-pointer w-1/2 bg-black text-white rounded-lg py-0.5'>Rejoindre</button>
+                    <button className='  cursor-pointer w-1/2 bg-black text-white rounded-lg py-0.5 subscribe relative'>
+                        <p>Rejoindre</p>
+                        <div className=' w-5 h-5 bg-green-700 absolute -top-2 rounded-full  -right-1 animate-bounce'></div>
+                    </button>
                 </div>
             </div>
         </div>

@@ -43,8 +43,7 @@
         -webkit-text-fill-color: transparent;
 }
 
-.navhov{
-}
+
 .navhov:hover{
     color: rgba(59, 136, 219, 1);
 }
@@ -97,5 +96,23 @@
     -ms-overflow-style: none; /* Internet Explorer and Edge */
     ::-webkit-scrollbar { display: none; } /* Chrome, Safari, Opera */
 }
+
+.subscribe{
+   transition: 2s;
+   animation: subscribeAnim 2s infinite;
+   border: 7px
+}
+/* @keyframes subscribeAnim {
+    0%{
+        border: 7px gray solid solid;
+    }
+    66%{
+        border: 7px  green solid;
+    }
+    100%{
+        border: 7px blue solid solid;
+    }
+    
+} */
 
 
