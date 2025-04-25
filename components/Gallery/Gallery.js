@@ -19,7 +19,7 @@ function Gallery({medias}) {
 },[currService, currentIndx, medias])
 
   return (
-    <div >
+    <div  >
         <GalleryLabel currService={currService}/>
         <GalleryMedias medias={medias}/>
     </div>
