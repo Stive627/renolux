@@ -91,7 +91,7 @@ function Navbar() {
                         <PhoneIcon/>
                         <p>+237 6 91 09 80 37</p>
                     </div>
-                    <button className='  cursor-pointer w-1/2 bg-black text-white rounded-lg py-0.5  relative'>
+                    <button className={`cursor-pointer w-40 ${large && 'mr-8'} bg-black text-white rounded-lg py-0.5  relative`}>
                         <p>Rejoindre</p>
                         <div className=' w-5 h-5  absolute -top-2 rounded-full  -right-1  subscribe'></div>
                     </button>
