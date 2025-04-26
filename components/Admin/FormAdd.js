@@ -14,13 +14,14 @@ function FormAdd({handleCloseForm, setMedias, medias}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         const formData = new FormData()
-        formData.append('img', media.img[0])
+        for(let i = 0; i<media.img.length; i++){ 
+        formData.append('img', media.img[i])
+        }
         formData.append('category', media.category)
         axios({url:fetchLink('media/add'), method:'POST', data:formData})
-        .then((val) => {setMedias([val.data, ...medias]); console.log(val.data); handleCloseForm()})
+        .then((val) => {setMedias([...val.data, ...medias]); console.log(val.data);handleCloseForm()})
         .catch((err) => console.log(err))
     }
-    console.log(media.img)
     const handleDeleteImg = (indx) => {
         const actualImgArr = [...media.img]
         const finalArr = actualImgArr.filter((val, index) => index !== indx)
@@ -42,7 +43,7 @@ function FormAdd({handleCloseForm, setMedias, medias}) {
                                         </div>
                             :    
                             <>
-                                <input type='file' className=' hidden' id='mediaImg' onChange={(e)=>{ console.log(Object.values(e.target.files)); setMedia({...media, img:Object.values(e.target.files)})}} multiple/>
+                                <input type='file' className=' hidden' id='mediaImg' onChange={(e)=>{ console.log(Object.values(e.target.files)); setMedia({...media, img:Object.values(e.target.files)});}} multiple/>
                                 <label htmlFor='mediaImg'>
                                     <div className=' w-full h-32 border border-dashed flex justify-center items-center rounded-md border-slate-500'>
                                         <ImageIcon className=' text-black' sx={{fontSize:30}}/>
