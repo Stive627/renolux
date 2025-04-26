@@ -19,7 +19,6 @@ function Gallery( {setMedia, medias}) {
     const handleFull = (indx) => {
       const arr = [0, 1, 2, 3] 
       const arrf= arr.filter(elt => elt !== indx)
-      console.log(arrf)
       const node1 = singleCategoryRef.current.get(arrf[0])
       const node2 = singleCategoryRef.current.get(arrf[1])
       const node3 = singleCategoryRef.current.get(arrf[2])
