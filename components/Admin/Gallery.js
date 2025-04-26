@@ -8,21 +8,21 @@ function Gallery( {setMedia, medias}) {
   const [showForm, setShowForm] = useState(false)
   const handleShowForm = () => setShowForm(true)
   const handleCloseForm = () => setShowForm(false)
-  const [currIndx, setCurrIndx] = useState(3)
+  const [currIndx, setCurrIndx] = useState(undefined)
   const large = useScreen()
   const med = [...medias]
   const plansMed = med.filter(elt => elt.category === 'Plans')
   const placoMed = med.filter(elt => elt.category === 'Placoplâtre')
   const decoMed = med.filter(elt => elt.category === 'Decoration')
   const peintureMed = med.filter(elt => elt.category === 'Peinture')
-  console.log(plansMed)
   const singleCategoryRef = useRef(new Map())
     const handleFull = (indx) => {
-      const arr = [0, 1, 2] 
+      const arr = [0, 1, 2, 3] 
       const arrf= arr.filter(elt => elt !== indx)
       console.log(arrf)
       const node1 = singleCategoryRef.current.get(arrf[0])
       const node2 = singleCategoryRef.current.get(arrf[1])
+      const node3 = singleCategoryRef.current.get(arrf[2])
       const node = singleCategoryRef.current.get(indx)
       node1.scrollTo({top:0, behavior:'smooth'})
       node1.style.height=large?'525px':'370px'
@@ -30,6 +30,9 @@ function Gallery( {setMedia, medias}) {
       node2.scrollTo({top:0, behavior:'smooth'})
       node2.style.height=large?'525px':'370px'
       node2.style.overflow='hidden'
+      node3.scrollTo({top:0, behavior:'smooth'})
+      node3.style.height=large?'525px':'370px'
+      node3.style.overflow='hidden'
       node.style.overflow='scroll'
       node.scrollTo({top:10000, behavior:'smooth'})
       setCurrIndx(indx)
@@ -39,7 +42,7 @@ function Gallery( {setMedia, medias}) {
         node.scrollTo({top:0, behavior:'smooth'})
         node.style.height=large?'525px':'370px'
         node.style.overflow='hidden'
-        setCurrIndx(3)
+        setCurrIndx(undefined)
     }
   if(showForm) return <FormAdd setMedias={setMedia} medias={medias} handleCloseForm={handleCloseForm}/>
   return(
