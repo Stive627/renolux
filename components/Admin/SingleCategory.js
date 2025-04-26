@@ -7,7 +7,7 @@ import useScreen from '@/hook/useScreen';
 import ShowDetailMedia from './ShowDetailMedia';
 import axios from 'axios';
 
-function SingleCategory({medias, title, handleRef, handleFull, handleShowLess, indx, currIndx, setMedia}) {
+function SingleCategory({medias, AllMedias, title, handleRef, handleFull, handleShowLess, indx, currIndx, setMedia}) {
   const large = useScreen()
   const [currentMed, setCurrentMed] = useState(undefined)
   const handleClick = (med) => {
@@ -19,7 +19,7 @@ function SingleCategory({medias, title, handleRef, handleFull, handleShowLess, i
   const handleDelete = (id, indx) => {
     axios({url:fetchLink(`media/delete/${id}`), method:'DELETE'})
     .then(()=> {
-      const med = [...medias]
+      const med = [...AllMedias]
       const finalMe = med.filter(elt => elt !== med[indx])
       setMedia(finalMe)
       console.log('deleted')
