@@ -40,7 +40,7 @@ function Localisation() {
     <div className={`px-2 py-3 ${large && 'grid grid-cols-3 gap-1 items-center'}`}>
         <SocialMedia/>
         <div className=' col-span-1 w-full h-full p-2 flex justify-center'>
-            <Image width={150} height={150} className=' object-cover' src = {fetchLink('public/medias/happyClients.png')} alt='Clients satisfaits'/>
+            <Image width={150} height={150} className=' object-cover' src = {'https://renolux-bucket.s3.ap-south-1.amazonaws.com/happyClients.png'} alt='Clients satisfaits'/>
         </div>
         <div className=' col-span-1 flex items-center flex-col '>
             <p className=' text-center text-slate-700'>Avec plus de 15 projets réalisés nous mettons toujours nos clients en accord avec notre professionnalismeet notre dévouement </p>

@@ -18,8 +18,9 @@ export default function Home() {
   const [comment, setComment] = useState([])
 
   useEffect(() => {
-    axios({url:fetchLink('media/show'), method:'GET'})
+    axios({url:fetchLink('media/'), method:'GET'})
     .then((value) => {
+      if(value.data.length>0){
       const med = [...value.data]
       const plansMed = med.filter(elt => elt.category === 'Plans')
       const placoMed = med.filter(elt => elt.category === 'Placoplâtre')
@@ -27,6 +28,7 @@ export default function Home() {
       const peintureMed = med.filter(elt => elt.category === 'Peinture')
       setMedias([...placoMed, ...decoMed, ...peintureMed])
       setPlans(plansMed)
+      }
     })
     .catch((reason) => console.log('An error occured', reason))
   },[])

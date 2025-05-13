@@ -29,7 +29,7 @@ export function LeftNav(){
     const large = useScreen()
     return(
         <div className = 'flex flex-row items-center gap-2'>
-            <div><Image width={large?50:40} height={large?50:40}  alt={'Logo Renolux'} src={fetchLink('public/medias/logo.png')} className='logoAn'/></div>
+            <div><Image width={large?50:40} height={large?50:40}  alt={'Logo Renolux'} src={'https://renolux-bucket.s3.ap-south-1.amazonaws.com/logo.png'} className='logoAn'/></div>
             <p style={{color:'rgba(57, 55, 55, 1)'}} className={`font-semibold  ${large? 'text-[26px]':'text-[20px]'}`}>Renolux Cameroun</p>
         </div>
     )

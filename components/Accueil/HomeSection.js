@@ -40,12 +40,12 @@ function HomeSection({plans}){
         {
             large ? 
             <div className='grid grid-cols-7 '>
-                 <div className=' col-span-3'> <Image height={100} width={100} alt='' className=' w-[84vh] h-[84vh]' src={fetchLink('public/medias/homepic.png')}/></div>
+                 <div className=' col-span-3'> <Image height={100} width={100} alt='' className=' w-[84vh] h-[84vh]' src={'https://renolux-bucket.s3.ap-south-1.amazonaws.com/homepic.png'}/></div>
                 <HomeSectionRight plans={plans}/>
             </div>
             :
             <>
-                <Image width={100} height={100} alt='' className=' h-full w-full' src={fetchLink('public/medias/homepic.png')}/>
+                <Image width={100} height={100} alt='' className=' h-full w-full' src={'https://renolux-bucket.s3.ap-south-1.amazonaws.com/homepic.png'}/>
                 <HomeSectionRight plans={plans}/>
             </>
         }</div>
