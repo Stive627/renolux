@@ -19,7 +19,7 @@ function Admin() {
     .catch(err => console.error(err.response.data))
   },[])
   useEffect(()=>{
-    axios({url:fetchLink('media/show'), method:'GET'})
+    axios({url:fetchLink('media'), method:'GET'})
     .then((val) => setMedias(val.data))
     .catch(err => console.error(err.response.data))
   },[])
